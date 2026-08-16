@@ -1,49 +1,95 @@
+import React from "react";
+import GlowCard from "../../common/GlowCard";
 import { motion } from "framer-motion";
-import { FiZap, FiMapPin } from "react-icons/fi";
+import { FiMapPin } from "react-icons/fi";
 import { GiSharkFin, GiSuspensionBridge } from "react-icons/gi";
 
+/* Anchor SVG (animated live quill drawing effect) */
+const AnchorSVG = ({ size = 24 }) => (
+  <motion.svg width={size} height={size} viewBox="0 0 48 60" fill="none"
+    initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
+  >
+    <motion.circle cx="24" cy="12" r="7" stroke="rgba(200,134,10,0.85)" strokeWidth="2.5" fill="none"
+      variants={{ hidden: { pathLength: 0 }, visible: { pathLength: 1 } }} transition={{ duration: 1, delay: 0.1 }} />
+    <motion.line x1="24" y1="19" x2="24" y2="52" stroke="rgba(200,134,10,0.85)" strokeWidth="2.5"
+      variants={{ hidden: { pathLength: 0 }, visible: { pathLength: 1 } }} transition={{ duration: 1.2, delay: 0.2 }} />
+    <motion.path d="M10 28 Q5 28 5 36 Q5 50 24 52 Q43 50 43 36 Q43 28 38 28" stroke="rgba(200,134,10,0.85)" strokeWidth="2.5" fill="none"
+      variants={{ hidden: { pathLength: 0 }, visible: { pathLength: 1 } }} transition={{ duration: 1.5, delay: 0.4 }} />
+    <motion.line x1="8" y1="28" x2="40" y2="28" stroke="rgba(200,134,10,0.85)" strokeWidth="2.5"
+      variants={{ hidden: { pathLength: 0 }, visible: { pathLength: 1 } }} transition={{ duration: 0.8, delay: 0.6 }} />
+    <motion.circle cx="24" cy="12" r="3" fill="rgba(200,134,10,0.9)"
+      variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }} transition={{ duration: 0.5, delay: 1.2 }} />
+  </motion.svg>
+);
+
 const ICONS = {
-  zap: FiZap,
+  zap: AnchorSVG,
   shark: GiSharkFin,
   bridge: GiSuspensionBridge,
 };
 
 const BattlegroundCard = ({ battleground, onSelect, index }) => {
-  const Icon = ICONS[battleground.icon] ?? FiZap;
+  const IconComponent = ICONS[battleground.icon];
 
   return (
-    <motion.button
+    <GlowCard
       type="button"
       onClick={() => onSelect(battleground)}
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group relative flex flex-col items-start rounded-2xl border border-amber-400/15 bg-white/[0.02] p-7 text-left transition-all duration-300 hover:border-amber-400/40 hover:bg-white/[0.04] hover:shadow-[0_0_30px_rgba(251,191,36,0.12)] hover:-translate-y-1"
+      index={index}
+      className="group flex flex-col items-start text-left hover-target"
+      style={{
+        padding: "28px",
+        borderRadius: "4px",
+        background: "linear-gradient(135deg, rgba(26,74,107,0.18), rgba(15,52,96,0.12))",
+        border: "1px solid rgba(200,134,10,0.22)",
+      }}
     >
-      <div className="flex h-12 w-12 items-center justify-center rounded-full border border-amber-400/25 bg-amber-400/[0.06] text-2xl text-amber-300">
-        <Icon />
+      {/* Map corner decorations */}
+      <span className="absolute top-2 left-2 w-3 h-3 border-t border-l" style={{ borderColor: "rgba(200,134,10,0.45)" }} />
+      <span className="absolute top-2 right-2 w-3 h-3 border-t border-r" style={{ borderColor: "rgba(200,134,10,0.45)" }} />
+      <span className="absolute bottom-2 left-2 w-3 h-3 border-b border-l" style={{ borderColor: "rgba(200,134,10,0.45)" }} />
+      <span className="absolute bottom-2 right-2 w-3 h-3 border-b border-r" style={{ borderColor: "rgba(200,134,10,0.45)" }} />
+
+      {/* Icon */}
+      <div className="flex h-12 w-12 items-center justify-center"
+        style={{
+          border: "1px solid rgba(200,134,10,0.35)",
+          borderRadius: "3px",
+          background: "linear-gradient(135deg, rgba(26,74,107,0.3), rgba(15,52,96,0.2))",
+          color: "#c8860a",
+          fontSize: "1.4rem",
+        }}>
+        {battleground.icon === "zap"
+          ? <AnchorSVG size={24} />
+          : <IconComponent style={{ color: "#c8860a" }} />
+        }
       </div>
 
-      <h3 className="mt-5 font-serif text-xl text-amber-100">
+      <h3 className="mt-5" style={{ fontFamily: "'Cinzel',serif", fontSize: "0.92rem", color: "#c8d8e8" }}>
         {battleground.title}
       </h3>
 
-      <p className="mt-3 text-sm leading-relaxed text-slate-400 font-light line-clamp-2">
+      <p className="mt-3 text-sm font-light line-clamp-2"
+        style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "1.05rem", color: "rgba(168,196,216,0.75)" }}>
         {battleground.description}
       </p>
 
-      <div className="mt-5 flex items-center gap-1.5 text-xs text-slate-500">
-        <FiMapPin className="text-amber-300/70" />
+      <div className="mt-5 flex items-center gap-1.5 text-xs" style={{ color: "rgba(30,106,138,0.8)" }}>
+        <FiMapPin style={{ color: "rgba(200,134,10,0.7)" }} />
         {battleground.venue}
       </div>
 
-      <span className="mt-5 inline-flex items-center rounded-full border border-amber-400/30 bg-amber-400/[0.05] px-3 py-1 text-[11px] uppercase tracking-wider text-amber-300">
+      <span className="mt-5 inline-flex items-center px-3 py-1 text-[10px] uppercase tracking-wider"
+        style={{
+          fontFamily: "'Cinzel',serif",
+          color: "rgba(200,134,10,0.85)",
+          border: "1px solid rgba(200,134,10,0.3)",
+          background: "rgba(26,74,107,0.15)",
+          borderRadius: "2px",
+        }}>
         {battleground.tag}
       </span>
-
-      <span className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:shadow-[inset_0_0_0_1px_rgba(251,191,36,0.25)]" />
-    </motion.button>
+    </GlowCard>
   );
 };
 

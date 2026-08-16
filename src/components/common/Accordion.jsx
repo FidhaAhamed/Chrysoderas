@@ -1,37 +1,48 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { FiPlus } from "react-icons/fi";
+
+/* Ship's wheel SVG toggle */
+const WheelToggle = ({ isOpen }) => (
+  <svg width="20" height="20" viewBox="0 0 100 100" fill="none"
+    style={{ transition: "transform 0.3s", transform: isOpen ? "rotate(90deg)" : "rotate(0deg)" }}>
+    <circle cx="50" cy="50" r="42" stroke="rgba(200,134,10,0.75)" strokeWidth="2" />
+    <circle cx="50" cy="50" r="12" stroke="rgba(200,134,10,0.75)" strokeWidth="2.5" fill="none" />
+    <circle cx="50" cy="50" r="4.5" fill="rgba(200,134,10,0.9)" />
+    {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => {
+      const r = Math.PI * angle / 180;
+      return <line key={angle}
+        x1={50 + 12 * Math.cos(r)} y1={50 + 12 * Math.sin(r)}
+        x2={50 + 42 * Math.cos(r)} y2={50 + 42 * Math.sin(r)}
+        stroke="rgba(200,134,10,0.7)" strokeWidth="1.8" />;
+    })}
+  </svg>
+);
 
 const Accordion = ({ items }) => {
   const [openId, setOpenId] = useState(null);
-
-  const toggle = (id) => {
-    setOpenId((prev) => (prev === id ? null : id));
-  };
+  const toggle = (id) => setOpenId((p) => (p === id ? null : id));
 
   return (
-    <div className="flex flex-col divide-y divide-amber-400/10 rounded-2xl border border-amber-400/15 bg-white/[0.02]">
-      {items.map((item) => {
+    <div style={{
+      border: "1px solid rgba(200,134,10,0.22)",
+      borderRadius: "3px",
+      background: "linear-gradient(135deg, rgba(26,74,107,0.14), rgba(15,52,96,0.08))",
+    }}>
+      {items.map((item, idx) => {
         const isOpen = openId === item.id;
-
         return (
-          <div key={item.id} className="px-6">
+          <div key={item.id} className="px-6"
+            style={{ borderBottom: idx < items.length - 1 ? "1px solid rgba(30,106,138,0.15)" : "none" }}>
             <button
               type="button"
               onClick={() => toggle(item.id)}
               aria-expanded={isOpen}
               className="flex w-full items-center justify-between gap-4 py-5 text-left"
             >
-              <span className="font-serif text-base sm:text-lg text-amber-100">
+              <span style={{ fontFamily: "'Cinzel',serif", fontSize: "0.85rem", color: "#c8d8e8" }}>
                 {item.question}
               </span>
-              <motion.span
-                animate={{ rotate: isOpen ? 45 : 0 }}
-                transition={{ duration: 0.25 }}
-                className="flex-shrink-0 text-lg text-amber-300"
-              >
-                <FiPlus />
-              </motion.span>
+              <WheelToggle isOpen={isOpen} />
             </button>
 
             <AnimatePresence initial={false}>
@@ -43,7 +54,8 @@ const Accordion = ({ items }) => {
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
-                  <p className="pb-5 text-sm leading-relaxed text-slate-400 font-light">
+                  <p className="pb-5 text-sm font-light leading-relaxed italic"
+                    style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "1.08rem", color: "rgba(168,196,216,0.8)" }}>
                     {item.answer}
                   </p>
                 </motion.div>
