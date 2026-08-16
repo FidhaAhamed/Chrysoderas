@@ -4,6 +4,17 @@ import { ParchmentButton } from "../common/ParchmentButton";
 import GlowCard from "../common/GlowCard";
 import { FiDownload } from "react-icons/fi";
 
+/* Anchor icon */
+const AnchorIcon = ({ size = 16, color = "#140a02" }) => (
+  <svg width={size} height={size * 1.25} viewBox="0 0 48 60" fill="none" style={{ marginLeft: "2px" }}>
+    <circle cx="24" cy="12" r="7" stroke={color} strokeWidth="2.8" fill="none" />
+    <line x1="24" y1="19" x2="24" y2="52" stroke={color} strokeWidth="2.8" />
+    <path d="M10 28 Q5 28 5 36 Q5 50 24 52 Q43 50 43 36 Q43 28 38 28" stroke={color} strokeWidth="2.8" fill="none" />
+    <line x1="8" y1="28" x2="40" y2="28" stroke={color} strokeWidth="2.8" />
+    <circle cx="24" cy="12" r="3.5" fill={color} />
+  </svg>
+);
+
 const DOMAINS = [
   { label: "AI / ML", desc: "Intelligent systems & automation", icon: "⚙️" },
   { label: "Web3 & Blockchain", desc: "Decentralized, trustless builds", icon: "⛓️" },
@@ -126,8 +137,9 @@ const HackathonHub = () => {
             <GlowCard key={domain.label} index={i}
               className="group p-6 hover-target"
               style={{
-                background: "linear-gradient(135deg, rgba(26,74,107,0.15), rgba(15,52,96,0.1))",
-                border: "1px solid rgba(200,134,10,0.2)",
+                background: "linear-gradient(135deg, rgba(15, 30, 50, 0.75), rgba(8, 20, 35, 0.85))",
+                backdropFilter: "blur(12px)",
+                border: "1px solid rgba(200,134,10,0.35)",
                 borderRadius: "3px",
               }}
             >
@@ -152,7 +164,7 @@ const HackathonHub = () => {
           className="mt-14 flex justify-center"
         >
           <div className="flex justify-center mt-12 mb-8">
-            <ParchmentButton href="/assets/hackathon-rulebook.pdf" size="sm" icon={<span>⚓</span>}>
+            <ParchmentButton href="/assets/hackathon-rulebook.pdf" size="sm" icon={<AnchorIcon />}>
               Download Rulebook
             </ParchmentButton>
           </div>

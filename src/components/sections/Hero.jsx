@@ -44,10 +44,10 @@ const GoldRule = ({ children }) => (
   <div className="flex items-center justify-center gap-3 select-none">
     <div className="h-px w-16 sm:w-24" style={{ background: "linear-gradient(90deg, transparent, rgba(200,134,10,0.85))" }} />
     <Star size={12} />
-    <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.65rem", letterSpacing: "0.3em", color: "rgba(200,134,10,0.9)", textTransform: "uppercase" }}>
+    <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.95rem", letterSpacing: "0.25em", color: "rgba(200,134,10,0.9)", textTransform: "uppercase", fontWeight: 600 }}>
       {children}
     </span>
-    <Star size={12} />
+    <Star size={14} />
     <div className="h-px w-16 sm:w-24" style={{ background: "linear-gradient(90deg, rgba(200,134,10,0.85), transparent)" }} />
   </div>
 );
@@ -57,10 +57,10 @@ const DateRow = ({ children }) => (
   <div className="flex items-center justify-center gap-3 select-none">
     <div className="h-px w-10 sm:w-16" style={{ background: "linear-gradient(90deg, transparent, rgba(200,134,10,0.7))" }} />
     <Star size={10} />
-    <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.65rem", letterSpacing: "0.25em", color: "rgba(200,134,10,0.82)", textTransform: "uppercase" }}>
+    <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.95rem", letterSpacing: "0.2em", color: "rgba(200,134,10,0.9)", textTransform: "uppercase", fontWeight: 600 }}>
       {children}
     </span>
-    <Star size={10} />
+    <Star size={12} />
     <div className="h-px w-10 sm:w-16" style={{ background: "linear-gradient(90deg, rgba(200,134,10,0.7), transparent)" }} />
   </div>
 );
@@ -93,18 +93,7 @@ const Hero = () => {
   return (
     <section id="hero" className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden px-6 py-24">
 
-      {/* ── background image ── */}
-      <div className="absolute inset-0 z-0">
-        <img src="/hero-bg.jpeg" alt="" aria-hidden
-          className="h-full w-full object-cover object-center"
-          style={{ filter: "brightness(0.48) saturate(0.8)" }} />
-        {/* center fade so text is richly visible */}
-        <div className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(2,8,16,0.6) 0%, rgba(4,13,26,0.28) 40%, rgba(4,13,26,0.28) 60%, rgba(2,8,16,0.7) 100%)"
-          }} />
-      </div>
+
 
       {/* ── CONTENT — centered ── */}
       <div className="relative z-10 flex flex-col items-center text-center">
@@ -119,10 +108,11 @@ const Hero = () => {
           initial="hidden" animate="visible" custom={0.12} variants={fadeUp}
           className="mt-5"
           style={{
-            fontFamily: "'IM Fell DW Pica', serif",
-            fontSize: "clamp(3.5rem, 10vw, 7.5rem)",
+            fontFamily: "'Uncial Antiqua', cursive",
+            fontSize: "clamp(2.5rem, 8vw, 5.5rem)",
             lineHeight: 1,
             letterSpacing: "0.02em",
+            textTransform: "uppercase",
             color: "#af8b33",
             textShadow:
               "0 0 80px rgba(200,134,10,0.25)," +
@@ -163,8 +153,8 @@ const Hero = () => {
               className="flex flex-col items-center px-5 py-3"
               style={{
                 minWidth: 72,
-                background: "rgba(4,13,26,0.7)",
-                border: "1px solid rgba(200,134,10,0.38)",
+                background: "linear-gradient(135deg, rgba(20, 35, 55, 0.85), rgba(10, 20, 30, 0.95))",
+                border: "1px solid rgba(200,134,10,0.45)",
                 backdropFilter: "blur(12px)",
                 boxShadow: "inset 0 0 20px rgba(26,74,107,0.08), 0 4px 20px rgba(0,0,0,0.4)",
               }}>

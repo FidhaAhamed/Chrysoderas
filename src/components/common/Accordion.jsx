@@ -24,9 +24,10 @@ const Accordion = ({ items }) => {
 
   return (
     <div style={{
-      border: "1px solid rgba(200,134,10,0.22)",
+      border: "1px solid rgba(200,134,10,0.35)",
       borderRadius: "3px",
-      background: "linear-gradient(135deg, rgba(26,74,107,0.14), rgba(15,52,96,0.08))",
+      background: "linear-gradient(135deg, rgba(15, 30, 50, 0.75), rgba(8, 20, 35, 0.85))",
+      backdropFilter: "blur(12px)",
     }}>
       {items.map((item, idx) => {
         const isOpen = openId === item.id;

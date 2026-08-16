@@ -40,8 +40,9 @@ const BattlegroundCard = ({ battleground, onSelect, index }) => {
       style={{
         padding: "28px",
         borderRadius: "4px",
-        background: "linear-gradient(135deg, rgba(26,74,107,0.18), rgba(15,52,96,0.12))",
-        border: "1px solid rgba(200,134,10,0.22)",
+        background: "linear-gradient(135deg, rgba(15, 30, 50, 0.75), rgba(8, 20, 35, 0.85))",
+        backdropFilter: "blur(12px)",
+        border: "1px solid rgba(200,134,10,0.35)",
       }}
     >
       {/* Map corner decorations */}

@@ -25,7 +25,7 @@ const CompassRose = ({ size = 26 }) => (
 );
 
 /* Anchor icon for the Register button */
-const AnchorIcon = ({ size = 14, color = "#e8c96a" }) => (
+const AnchorIcon = ({ size = 14, color = "#140a02" }) => (
   <svg width={size} height={size * 1.25} viewBox="0 0 48 60" fill="none">
     <circle cx="24" cy="12" r="7" stroke={color} strokeWidth="2.8" fill="none" />
     <line x1="24" y1="19" x2="24" y2="52" stroke={color} strokeWidth="2.8" />
@@ -79,8 +79,8 @@ const Navbar = () => {
         <a href="#hero" className="flex items-center gap-2.5 flex-shrink-0">
           <CompassRose size={28} />
           <span
-            className="bg-gradient-to-r from-[#d8af4b] via-[#af8b33] to-[#866822] bg-clip-text text-transparent"
-            style={{ fontFamily: "'IM Fell DW Pica', serif", fontSize: "1.35rem", letterSpacing: "0.02em" }}
+            className="bg-gradient-to-r from-[#d8af4b] via-[#af8b33] to-[#866822] bg-clip-text text-transparent pb-1"
+            style={{ fontFamily: "'Uncial Antiqua', cursive", fontSize: "1.25rem", letterSpacing: "0.04em", textTransform: "uppercase" }}
           >
             ChrysoDeras&nbsp;'26
           </span>

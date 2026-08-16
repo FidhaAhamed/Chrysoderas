@@ -64,9 +64,10 @@ const Schedule = () => {
               <button key={day.key} type="button" onClick={() => setActiveDay(day.key)}
                 className="relative px-6 py-2 transition-colors duration-300 overflow-hidden"
                 style={{
-                  fontFamily: "'Cinzel',serif", fontSize: "0.73rem", letterSpacing: "0.1em",
-                  color: activeDay === day.key ? "#ebd6ae" : "rgba(168,196,216,0.75)",
-                  textShadow: activeDay === day.key ? "0 2px 4px rgba(0,0,0,0.6)" : "none",
+                  fontFamily: "'Cinzel',serif", fontSize: "0.8rem", letterSpacing: "0.1em",
+                  color: activeDay === day.key ? "#140a02" : "rgba(168,196,216,0.75)",
+                  textShadow: activeDay === day.key ? "0 1px 0 rgba(255,255,255,0.3)" : "none",
+                  fontWeight: activeDay === day.key ? 700 : 400,
                   borderRadius: "2px"
                 }}>
                 {activeDay === day.key && (

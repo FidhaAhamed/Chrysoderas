@@ -41,8 +41,9 @@ export const ParchmentButton = ({ children, href, onClick, icon, size = "md", cl
                         fontFamily: "'Cinzel Decorative', serif",
                         fontSize,
                         letterSpacing: "0.08em",
-                        color: "#ebd6ae",
-                        textShadow: "0 2px 4px rgba(0,0,0,0.6), 0 0 10px rgba(0,0,0,0.3)",
+                        color: "#140a02",
+                        fontWeight: 700,
+                        textShadow: "0 1px 0 rgba(255,255,255,0.3)",
                         lineHeight: 1,
                         textTransform: "uppercase",
                     }}>
