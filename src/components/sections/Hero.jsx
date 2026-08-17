@@ -106,11 +106,11 @@ const Hero = () => {
         {/* Main title */}
         <motion.h1
           initial="hidden" animate="visible" custom={0.12} variants={fadeUp}
-          className="mt-5"
+          className="mt-5 max-w-full break-words"
           style={{
             fontFamily: "'Uncial Antiqua', cursive",
-            fontSize: "clamp(1.8rem, 10vw, 5.5rem)",
-            lineHeight: 1,
+            fontSize: "clamp(1.5rem, 7vw, 5.5rem)",
+            lineHeight: 1.1,
             letterSpacing: "0.02em",
             textTransform: "uppercase",
             color: "#af8b33",
@@ -120,7 +120,7 @@ const Hero = () => {
               "0 1px 0 rgba(255,240,180,0.1)",
           }}
         >
-          ChrysoDeras&nbsp;'26
+          ChrysoDeras <br className="sm:hidden" /> '26
         </motion.h1>
 
         {/* Sub-copy */}
