@@ -1,26 +1,18 @@
 export const coordinators = [
   {
-    id: "event-lead",
-    name: "Coordinator Name (TBA)",
-    role: "Event Lead",
-    phone: "+91 00000 00000",
+    id: "coordinator-1",
+    name: "Adarsh A M",
+    phone: "+91 94470 72470",
   },
   {
-    id: "registration-head",
-    name: "Coordinator Name (TBA)",
-    role: "Registration Head",
-    phone: "+91 00000 00000",
-  },
-  {
-    id: "technical-lead",
-    name: "Coordinator Name (TBA)",
-    role: "Technical Lead",
-    phone: "+91 00000 00000",
+    id: "coordinator-2",
+    name: "Theajasree A S",
+    phone: "+91 80782 31369",
   },
 ];
 
 export const socialLinks = {
-  whatsapp: "https://chat.whatsapp.com/TBA",
-  instagram: "https://instagram.com/TBA",
-  linkedin: "https://linkedin.com/company/TBA",
+  whatsapp: "https://chat.whatsapp.com/DYA4ais7rpjBvcpTvwID7B",
+  instagram: "https://www.instagram.com/istemace/",
+  linkedin: "https://www.linkedin.com/company/iste-mace/",
 };

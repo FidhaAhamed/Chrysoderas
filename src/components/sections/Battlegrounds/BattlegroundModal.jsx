@@ -45,6 +45,11 @@ const BattlegroundModal = ({ battleground, onClose }) => {
         <h3 className="mt-5 font-serif text-2xl text-amber-100">
           {battleground.title}
         </h3>
+        {battleground.subtitle && (
+          <h4 className="mt-1 font-serif text-xl text-amber-300">
+            {battleground.subtitle}
+          </h4>
+        )}
 
         <span className="mt-3 inline-flex items-center rounded-full border border-amber-400/30 bg-amber-400/[0.05] px-3 py-1 text-[11px] uppercase tracking-wider text-amber-300">
           {battleground.tag}

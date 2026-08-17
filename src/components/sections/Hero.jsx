@@ -178,8 +178,9 @@ const Hero = () => {
       </div>
 
       {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 z-10 flex flex-col items-center gap-2"
+      <motion.a
+        href="#lore"
+        className="absolute bottom-8 z-10 flex flex-col items-center gap-2 cursor-pointer hover-target p-4"
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
       >
@@ -187,7 +188,7 @@ const Hero = () => {
           Scroll
         </span>
         <AnchorSVG size={18} color="rgba(200,134,10,0.65)" />
-      </motion.div>
+      </motion.a>
     </section>
   );
 };

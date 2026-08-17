@@ -69,6 +69,11 @@ const BattlegroundCard = ({ battleground, onSelect, index }) => {
       <h3 className="mt-5" style={{ fontFamily: "'Cinzel',serif", fontSize: "0.92rem", color: "#c8d8e8" }}>
         {battleground.title}
       </h3>
+      {battleground.subtitle && (
+        <span className="mt-1 block text-[#c49c36]" style={{ fontFamily: "'Cinzel Decorative',serif", fontSize: "0.85rem" }}>
+          {battleground.subtitle}
+        </span>
+      )}
 
       <p className="mt-3 text-sm font-light line-clamp-2"
         style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "1.05rem", color: "rgba(168,196,216,0.75)" }}>

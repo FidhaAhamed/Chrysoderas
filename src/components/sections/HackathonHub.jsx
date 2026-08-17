@@ -16,10 +16,11 @@ const AnchorIcon = ({ size = 16, color = "#140a02" }) => (
 );
 
 const DOMAINS = [
-  { label: "AI / ML", desc: "Intelligent systems & automation", icon: "⚙️" },
-  { label: "Web3 & Blockchain", desc: "Decentralized, trustless builds", icon: "⛓️" },
-  { label: "IoT & Hardware", desc: "Bridging the physical & digital", icon: "🔩" },
-  { label: "Sustainability Tech", desc: "Solutions for a greener future", icon: "🌿" },
+  { label: "AI for Health & Well-Being", desc: "Intelligent solutions for a healthier world", icon: "🌿" },
+  { label: "Future Learning & Career Empowerment", desc: "Chart your course to the next frontier", icon: "📜" },
+  { label: "GreenTech & Sustainable Innovation", desc: "Eco-friendly tech for a thriving world", icon: "🍃" },
+  { label: "Cyber Defense & Digital Trust", desc: "Secure your fleet against digital threats", icon: "🛡️" },
+  { label: "Smart Living & Connected Communities", desc: "Bridging the gap to a unified society", icon: "🌐" },
 ];
 
 const RopeDivider = ({ children = "⚓" }) => (
@@ -80,10 +81,14 @@ const HackathonHub = () => {
           <motion.h2
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-[#c49c36]"
-            style={{ fontFamily: "'Cinzel Decorative',serif", fontSize: "clamp(1.8rem,5vw,3.2rem)", lineHeight: 1.25 }}
+            className="flex flex-col items-center gap-1"
           >
-            The Overnight Hackathon
+            <span className="text-[#c49c36]" style={{ fontFamily: "'Cinzel Decorative',serif", fontSize: "clamp(2.2rem,6vw,4rem)", lineHeight: 1.1 }}>
+              Odessa
+            </span>
+            <span style={{ fontFamily: "'Cinzel',serif", fontSize: "clamp(1.2rem,3vw,1.8rem)", color: "#c8d8e8", letterSpacing: "0.05em" }}>
+              The Overnight Hackathon
+            </span>
           </motion.h2>
 
           {/* Animated hours counter */}
@@ -135,7 +140,7 @@ const HackathonHub = () => {
         <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
           {DOMAINS.map((domain, i) => (
             <GlowCard key={domain.label} index={i}
-              className="group p-6 hover-target"
+              className={`group p-6 hover-target ${i === DOMAINS.length - 1 && DOMAINS.length % 2 !== 0 ? "sm:col-span-2 sm:mx-auto sm:w-1/2" : ""}`}
               style={{
                 background: "linear-gradient(135deg, rgba(15, 30, 50, 0.75), rgba(8, 20, 35, 0.85))",
                 backdropFilter: "blur(12px)",
@@ -157,18 +162,7 @@ const HackathonHub = () => {
           ))}
         </div>
 
-        {/* Download button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.2 }}
-          className="mt-14 flex justify-center"
-        >
-          <div className="flex justify-center mt-12 mb-8">
-            <ParchmentButton href="/assets/hackathon-rulebook.pdf" size="sm" icon={<AnchorIcon />}>
-              Download Rulebook
-            </ParchmentButton>
-          </div>
-        </motion.div>
+
       </div>
     </section>
   );

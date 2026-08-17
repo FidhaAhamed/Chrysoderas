@@ -19,11 +19,10 @@ const WheelIcon = ({ size = 18 }) => (
 
 const QUICK_LINKS = [
   { label: "Home", href: "#hero" },
-  { label: "Lore", href: "#lore" },
   { label: "Hackathon", href: "#hackathon" },
   { label: "Battlegrounds", href: "#battlegrounds" },
+  { label: "Treasure Hunt", href: "#treasure-hunt" },
   { label: "Schedule", href: "#schedule" },
-  { label: "FAQ", href: "#faq" },
 ];
 
 const Footer = () => (
@@ -51,11 +50,8 @@ const Footer = () => (
       <div className="grid grid-cols-1 gap-12 sm:grid-cols-3">
         {/* Brand */}
         <div>
-          <a href="#hero"
-            className="flex items-center gap-2.5 bg-gradient-to-r from-[#f5e6b8] via-[#e8c96a] to-[#c8860a] bg-clip-text text-transparent"
-            style={{ fontFamily: "'Cinzel Decorative',serif", fontSize: "1rem" }}>
-            <WheelIcon size={20} />
-            ChrysoDeras&nbsp;'26
+          <a href="#hero" className="inline-block relative">
+            <img src="/chrysoderas%20logo.png" alt="ChrysoDeras Logo" className="h-16 w-auto object-contain drop-shadow-[0_0_10px_rgba(200,134,10,0.15)] -translate-x-2" />
           </a>
           <p className="mt-4 max-w-xs text-sm font-light leading-relaxed italic"
             style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "1.05rem", color: "rgba(168,196,216,0.75)" }}>
@@ -70,8 +66,8 @@ const Footer = () => (
 
         {/* Quick links */}
         <div>
-          <h4 className="text-xs uppercase tracking-widest"
-            style={{ fontFamily: "'Cinzel',serif", color: "rgba(30,106,138,0.9)" }}>
+          <h4 className="text-sm font-bold uppercase tracking-widest"
+            style={{ fontFamily: "'Cinzel',serif", color: "rgba(100,166,198,0.95)" }}>
             ⚓ Quick Links
           </h4>
           <ul className="mt-5 flex flex-col gap-3">
@@ -91,8 +87,8 @@ const Footer = () => (
 
         {/* Contact */}
         <div>
-          <h4 className="text-xs uppercase tracking-widest"
-            style={{ fontFamily: "'Cinzel',serif", color: "rgba(30,106,138,0.9)" }}>
+          <h4 className="text-sm font-bold uppercase tracking-widest"
+            style={{ fontFamily: "'Cinzel',serif", color: "rgba(100,166,198,0.95)" }}>
             ⚔ Contact the Crew
           </h4>
           <ul className="mt-5 flex flex-col gap-4">
@@ -101,7 +97,6 @@ const Footer = () => (
                 <p className="text-sm" style={{ fontFamily: "'Cinzel',serif", fontSize: "0.78rem", color: "#c8d8e8" }}>
                   {person.name}
                 </p>
-                <p className="text-xs" style={{ color: "rgba(30,106,138,0.8)" }}>{person.role}</p>
                 <a href={`tel:${person.phone.replace(/\s/g, "")}`}
                   className="mt-1 inline-flex items-center gap-1.5 transition-colors duration-300"
                   style={{ color: "rgba(200,134,10,0.85)", fontSize: "0.82rem" }}
