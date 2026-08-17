@@ -146,7 +146,7 @@ const Hero = () => {
         {/* Countdown */}
         <motion.div
           initial="hidden" animate="visible" custom={0.4} variants={fadeUp}
-          className="mt-8 flex gap-3 sm:gap-5"
+          className="mt-8 flex flex-wrap justify-center gap-3 sm:gap-5"
         >
           {UNITS.map((u) => (
             <div key={u.label}

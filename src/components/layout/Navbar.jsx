@@ -75,8 +75,13 @@ const Navbar = () => {
 
         {/* ── Logo: ISTE ── */}
         <a href="#hero" className="flex items-center flex-shrink-0">
-          <img src="/Iste%20logo.png" alt="ISTE Logo" className="h-[4.2rem] w-auto object-contain" />
+          <img src="/Iste%20logo.png" alt="ISTE Logo" className="h-[4.2rem] sm:h-[4.2rem] w-auto object-contain" />
         </a>
+
+        {/* Mobile Chrysoderas Logo (Centered when lg is hidden) */}
+        <div className="flex lg:hidden flex-1 justify-center">
+          <img src="/chrysoderas%20logo.png" alt="ChrysoDeras Logo" className="h-[2.5rem] w-auto object-contain drop-shadow-[0_0_10px_rgba(200,134,10,0.15)]" />
+        </div>
 
         {/* ── Desktop nav links & Chrysoderas Logo ── */}
         <div className="hidden lg:flex items-center justify-center gap-8 flex-1">

@@ -16,11 +16,11 @@ const AnchorIcon = ({ size = 16, color = "#140a02" }) => (
 );
 
 const DOMAINS = [
-  { label: "AI for Health & Well-Being", desc: "Intelligent solutions for a healthier world", icon: "🌿" },
-  { label: "Future Learning & Career Empowerment", desc: "Chart your course to the next frontier", icon: "📜" },
-  { label: "GreenTech & Sustainable Innovation", desc: "Eco-friendly tech for a thriving world", icon: "🍃" },
-  { label: "Cyber Defense & Digital Trust", desc: "Secure your fleet against digital threats", icon: "🛡️" },
-  { label: "Smart Living & Connected Communities", desc: "Bridging the gap to a unified society", icon: "🌐" },
+  { label: "AI for Health & Well-Being", desc: "Intelligent solutions for a healthier world", icon: <img src="/light.png" alt="" className="h-10 w-auto object-contain opacity-90 drop-shadow-[0_0_6px_rgba(200,134,10,0.25)]" /> },
+  { label: "Future Learning & Career Empowerment", desc: "Chart your course to the next frontier", icon: <img src="/star.png" alt="" className="h-10 w-auto object-contain opacity-90 drop-shadow-[0_0_6px_rgba(200,134,10,0.25)]" /> },
+  { label: "GreenTech & Sustainable Innovation", desc: "Eco-friendly tech for a thriving world", icon: <img src="/wheel.png" alt="" className="h-10 w-auto object-contain opacity-90 drop-shadow-[0_0_6px_rgba(200,134,10,0.25)]" /> },
+  { label: "Cyber Defense & Digital Trust", desc: "Secure your fleet against digital threats", icon: <img src="/anchor3.png" alt="" className="h-10 w-auto object-contain opacity-90 drop-shadow-[0_0_6px_rgba(200,134,10,0.25)]" /> },
+  { label: "Smart Living & Connected Communities", desc: "Bridging the gap to a unified society", icon: <img src="/map_scroll.png" alt="" className="h-10 w-auto object-contain opacity-80 drop-shadow-[0_0_4px_rgba(200,134,10,0.2)]" /> },
 ];
 
 const RopeDivider = ({ children = "⚓" }) => (
@@ -148,16 +148,20 @@ const HackathonHub = () => {
                 borderRadius: "3px",
               }}
             >
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">{domain.icon}</span>
-                <h3 style={{ fontFamily: "'Cinzel',serif", fontSize: "0.9rem", color: "#c8d8e8" }}>
-                  {domain.label}
-                </h3>
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 flex items-center justify-center pt-0.5 w-10">
+                  {domain.icon}
+                </div>
+                <div>
+                  <h3 style={{ fontFamily: "'Cinzel',serif", fontSize: "0.9rem", color: "#c8d8e8" }}>
+                    {domain.label}
+                  </h3>
+                  <p className="mt-1.5 text-sm font-light"
+                    style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "1.05rem", color: "rgba(168,196,216,0.7)" }}>
+                    {domain.desc}
+                  </p>
+                </div>
               </div>
-              <p className="mt-2 text-sm font-light"
-                style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "1.05rem", color: "rgba(168,196,216,0.7)" }}>
-                {domain.desc}
-              </p>
             </GlowCard>
           ))}
         </div>
