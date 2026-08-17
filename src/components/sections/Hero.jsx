@@ -109,7 +109,7 @@ const Hero = () => {
           className="mt-5"
           style={{
             fontFamily: "'Uncial Antiqua', cursive",
-            fontSize: "clamp(2.5rem, 8vw, 5.5rem)",
+            fontSize: "clamp(1.8rem, 10vw, 5.5rem)",
             lineHeight: 1,
             letterSpacing: "0.02em",
             textTransform: "uppercase",

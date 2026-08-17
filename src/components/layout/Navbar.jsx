@@ -131,7 +131,7 @@ const Navbar = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
-            className="fixed inset-0 z-40 flex flex-col justify-center bg-[#020810]/95 backdrop-blur-xl lg:hidden"
+            className="fixed inset-0 z-[60] flex flex-col justify-center bg-[#020810]/95 backdrop-blur-xl lg:hidden"
             style={{ borderLeft: "1px solid rgba(200,134,10,0.25)" }}
           >
             {/* Close Button top right (recreated since the header is technically under or we can keep it here) */}
