@@ -60,70 +60,73 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
-      style={{
-        background: isScrolled
-          ? "rgba(3,9,20,0.92)"
-          : "linear-gradient(180deg, rgba(2,8,16,0.72) 0%, transparent 100%)",
-        backdropFilter: isScrolled ? "blur(16px)" : undefined,
-        borderBottom: isScrolled ? "1px solid rgba(200,134,10,0.22)" : "1px solid transparent",
-      }}
-    >
-      <nav className="flex w-full items-center px-4 sm:px-6 lg:px-8"
-        style={{ height: 78 }}>
+    <>
+      <header
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+        style={{
+          background: isScrolled
+            ? "rgba(3,9,20,0.92)"
+            : "linear-gradient(180deg, rgba(2,8,16,0.72) 0%, transparent 100%)",
+          backdropFilter: isScrolled ? "blur(16px)" : undefined,
+          borderBottom: isScrolled ? "1px solid rgba(200,134,10,0.22)" : "1px solid transparent",
+        }}
+      >
+        <nav className="flex w-full items-center px-4 sm:px-6 lg:px-8"
+          style={{ height: 78 }}>
 
-        {/* ── Logo: ISTE ── */}
-        <a href="#hero" className="flex items-center flex-shrink-0">
-          <img src="/Iste%20logo.png" alt="ISTE Logo" className="h-[4.2rem] sm:h-[4.2rem] w-auto object-contain" />
-        </a>
-
-        {/* Mobile Chrysoderas Logo (Centered when lg is hidden) */}
-        <div className="flex lg:hidden flex-1 justify-center">
-          <img src="/chrysoderas%20logo.png" alt="ChrysoDeras Logo" className="h-[2.5rem] w-auto object-contain drop-shadow-[0_0_10px_rgba(200,134,10,0.15)]" />
-        </div>
-
-        {/* ── Desktop nav links & Chrysoderas Logo ── */}
-        <div className="hidden lg:flex items-center justify-center gap-8 flex-1">
-          <a href="#hero" className="flex-shrink-0 mr-6">
-            <img src="/chrysoderas%20logo.png" alt="ChrysoDeras Logo" className="h-[3.25rem] w-auto object-contain drop-shadow-[0_0_10px_rgba(200,134,10,0.15)]" />
+          {/* ── Logo: ISTE ── */}
+          <a href="#hero" className="flex items-center flex-shrink-0">
+            <img src="/Iste%20logo.png" alt="ISTE Logo" className="h-[4.2rem] sm:h-[4.2rem] w-auto object-contain" />
           </a>
-          <ul className="flex items-center gap-9">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a href={link.href}
-                  className="relative text-[11px] uppercase tracking-[0.13em] transition-all duration-300"
-                  style={{ fontFamily: "'Cinzel', serif", color: "rgba(210,220,235,0.82)" }}
-                  onMouseEnter={(e) => { e.currentTarget.style.color = "#e8c96a"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(210,220,235,0.82)"; }}
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
 
-          {/* Register Button next to Schedule */}
-          <div className="ml-8">
-            <ParchmentButton href="#register" size="sm" icon={<AnchorIcon />}>
-              Register
-            </ParchmentButton>
+          {/* Mobile Chrysoderas Logo (Centered when lg is hidden) */}
+          <div className="flex lg:hidden flex-1 justify-center">
+            <img src="/chrysoderas%20logo.png" alt="ChrysoDeras Logo" className="h-[2.5rem] w-auto object-contain drop-shadow-[0_0_10px_rgba(200,134,10,0.15)]" />
           </div>
-        </div>
 
-        {/* ── Invisible Spacer to Balance ISTE Logo ── */}
-        <div className="hidden lg:block w-[100px]" />
+          {/* ── Desktop nav links & Chrysoderas Logo ── */}
+          <div className="hidden lg:flex items-center justify-center gap-8 flex-1">
+            <a href="#hero" className="flex-shrink-0 mr-6">
+              <img src="/chrysoderas%20logo.png" alt="ChrysoDeras Logo" className="h-[3.25rem] w-auto object-contain drop-shadow-[0_0_10px_rgba(200,134,10,0.15)]" />
+            </a>
+            <ul className="flex items-center gap-9">
+              {NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href}
+                    className="relative text-[11px] uppercase tracking-[0.13em] transition-all duration-300"
+                    style={{ fontFamily: "'Cinzel', serif", color: "rgba(210,220,235,0.82)" }}
+                    onMouseEnter={(e) => { e.currentTarget.style.color = "#e8c96a"; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(210,220,235,0.82)"; }}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
 
-        {/* Mobile hamburger */}
-        <button type="button" onClick={() => setIsOpen(p => !p)}
-          className="lg:hidden ml-auto text-2xl"
-          style={{ color: "rgba(200,134,10,0.85)" }}
-          aria-label="Toggle menu">
-          {isOpen ? <FiX /> : <FiMenu />}
-        </button>
-      </nav>
+            {/* Register Button next to Schedule */}
+            <div className="ml-8">
+              <ParchmentButton href="#register" size="sm" icon={<AnchorIcon />}>
+                Register
+              </ParchmentButton>
+            </div>
+          </div>
 
-      {/* Full-Screen Mobile Drawer Menu */}
+          {/* ── Invisible Spacer to Balance ISTE Logo ── */}
+          <div className="hidden lg:block w-[100px]" />
+
+          {/* Mobile hamburger */}
+          <button type="button" onClick={() => setIsOpen(p => !p)}
+            className="lg:hidden ml-auto text-2xl"
+            style={{ color: "rgba(200,134,10,0.85)" }}
+            aria-label="Toggle menu">
+            {isOpen ? <FiX /> : <FiMenu />}
+          </button>
+        </nav>
+
+      </header>
+
+      {/* Full-Screen Mobile Drawer Menu (Outside Header stacking context) */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -131,10 +134,10 @@ const Navbar = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
-            className="fixed inset-0 z-[60] flex flex-col justify-center bg-[#020810]/95 backdrop-blur-xl lg:hidden"
+            className="fixed inset-0 z-[9999] flex flex-col justify-center bg-[rgba(2,8,16,0.98)] backdrop-blur-3xl lg:hidden"
             style={{ borderLeft: "1px solid rgba(200,134,10,0.25)" }}
           >
-            {/* Close Button top right (recreated since the header is technically under or we can keep it here) */}
+            {/* Close Button top right */}
             <button
               type="button"
               onClick={() => setIsOpen(false)}
@@ -183,7 +186,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 };
 
