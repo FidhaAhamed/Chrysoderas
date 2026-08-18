@@ -1,18 +1,19 @@
 export const battlegrounds = [
   {
-    id: "junkyard",
+    id: "tiny-ml",
     icon: "zap",
-    emoji: "⚡",
-    title: "Junkyard Electronics Challenge",
+    emoji: "🤖",
+    title: "Tiny ML Workshop",
+    subtitle: "Aether",
     description:
-      "A 3-hour hardware sprint. Strategize with virtual money in an auction to buy scrapped parts and build a working prototype.",
-    tag: "High-Stakes Auction & Build",
-    venue: "Electronics Lab, Block C (TBA)",
+      "Dive into the world of Tiny Machine Learning. Learn to build, train, and deploy intelligent AI models directly onto resource-constrained microcontrollers.",
+    tag: "Hands-on Workshop",
+    venue: "Computer Lab, Block A (TBA)",
     rules: [
-      "Teams bid virtual currency in a live auction to acquire scrapped components.",
-      "All builds must be designed and assembled within the 3-hour window.",
-      "Prototypes are judged on functionality, creativity, and budget efficiency.",
-      "Only components won at auction may be used in the final build.",
+      "No prior hardware ML experience required.",
+      "Bring your own laptop with the required toolchains installed.",
+      "Follow along with live model training and optimization demonstrations.",
+      "Deploy a working model to a microcontroller by the end of the session.",
     ],
     coordinator: { name: "Coordinator Name (TBA)", phone: "+91 00000 00000" },
   },
@@ -21,6 +22,7 @@ export const battlegrounds = [
     icon: "shark",
     emoji: "🦈",
     title: "Tech Shark Tank",
+    subtitle: "Agora",
     description:
       "Step into the tank. Pitch your most innovative product or business ideas to our panel of judges and secure your investment.",
     tag: "Pitch & Prototype",
@@ -38,6 +40,7 @@ export const battlegrounds = [
     icon: "bridge",
     emoji: "🌉",
     title: "The Bridge Building Challenge",
+    subtitle: "Pillars of Olympus",
     description:
       "Test your structural engineering limits. Design, construct, and test the load-bearing capacity of your custom bridge.",
     tag: "Design & Destroy",

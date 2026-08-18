@@ -166,8 +166,8 @@ const TreasureHuntBanner = () => (
           className="mt-4 italic leading-relaxed"
           style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.15rem", color: "#a8c4d8" }}
         >
-          When the Battlegrounds fall silent, every crew from Shark Tank,
-          Junkyard, and Bridge Building converges on one final chase — decoding
+          When the Battlegrounds fall silent, every crew from Tech Shark Tank (Agora),
+          Tiny ML Workshop (Aether), and Bridge Building (Pillars of Olympus) converges on one final chase — decoding
           clues scattered across the entire campus.
         </motion.p>
 

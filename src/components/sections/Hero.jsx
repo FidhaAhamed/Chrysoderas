@@ -106,11 +106,11 @@ const Hero = () => {
         {/* Main title */}
         <motion.h1
           initial="hidden" animate="visible" custom={0.12} variants={fadeUp}
-          className="mt-5"
+          className="mt-5 max-w-full break-words"
           style={{
             fontFamily: "'Uncial Antiqua', cursive",
-            fontSize: "clamp(2.5rem, 8vw, 5.5rem)",
-            lineHeight: 1,
+            fontSize: "clamp(1.5rem, 7vw, 5.5rem)",
+            lineHeight: 1.1,
             letterSpacing: "0.02em",
             textTransform: "uppercase",
             color: "#af8b33",
@@ -120,7 +120,7 @@ const Hero = () => {
               "0 1px 0 rgba(255,240,180,0.1)",
           }}
         >
-          ChrysoDeras&nbsp;'26
+          ChrysoDeras '26
         </motion.h1>
 
         {/* Sub-copy */}
@@ -146,22 +146,21 @@ const Hero = () => {
         {/* Countdown */}
         <motion.div
           initial="hidden" animate="visible" custom={0.4} variants={fadeUp}
-          className="mt-8 flex gap-3 sm:gap-5"
+          className="mt-8 flex justify-center gap-2 sm:gap-5 w-full max-w-xl mx-auto"
         >
           {UNITS.map((u) => (
             <div key={u.label}
-              className="flex flex-col items-center px-5 py-3"
+              className="flex flex-col items-center justify-center px-2 sm:px-5 py-2 sm:py-3 flex-1 sm:flex-none sm:min-w-[72px] max-w-[80px] sm:max-w-none"
               style={{
-                minWidth: 72,
                 background: "linear-gradient(135deg, rgba(20, 35, 55, 0.85), rgba(10, 20, 30, 0.95))",
                 border: "1px solid rgba(200,134,10,0.45)",
                 backdropFilter: "blur(12px)",
                 boxShadow: "inset 0 0 20px rgba(26,74,107,0.08), 0 4px 20px rgba(0,0,0,0.4)",
               }}>
-              <span style={{ fontFamily: "'Cinzel', serif", fontSize: "2.2rem", color: "#e8c96a", lineHeight: 1 }}>
+              <span className="text-2xl sm:text-[2.2rem]" style={{ fontFamily: "'Cinzel', serif", color: "#e8c96a", lineHeight: 1 }}>
                 {String(u.v).padStart(2, "0")}
               </span>
-              <span className="mt-1 text-[9px] uppercase tracking-widest"
+              <span className="mt-1 text-[8px] sm:text-[9px] uppercase tracking-widest"
                 style={{ color: "rgba(168,196,216,0.7)" }}>
                 {u.label}
               </span>
@@ -178,8 +177,9 @@ const Hero = () => {
       </div>
 
       {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 z-10 flex flex-col items-center gap-2"
+      <motion.a
+        href="#lore"
+        className="absolute bottom-8 z-10 flex flex-col items-center gap-2 cursor-pointer hover-target p-4"
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
       >
@@ -187,7 +187,7 @@ const Hero = () => {
           Scroll
         </span>
         <AnchorSVG size={18} color="rgba(200,134,10,0.65)" />
-      </motion.div>
+      </motion.a>
     </section>
   );
 };
