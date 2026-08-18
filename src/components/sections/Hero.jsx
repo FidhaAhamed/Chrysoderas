@@ -120,7 +120,7 @@ const Hero = () => {
               "0 1px 0 rgba(255,240,180,0.1)",
           }}
         >
-          ChrysoDeras <br className="sm:hidden" /> '26
+          ChrysoDeras '26
         </motion.h1>
 
         {/* Sub-copy */}
