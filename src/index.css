@@ -150,17 +150,52 @@ body {
 .star {
   animation: blink var(--dur, 3s) ease-in-out infinite;
 }
-
-/* ── Scroll curl card (TreasureHunt) ── */
+/* ── Treasure Scroll ── */
+/* scroll.png is now the actual parchment artwork */
 .scroll-card {
-  background:
-    linear-gradient(180deg,
-      rgba(15, 40, 80, 0.7) 0%,
-      rgba(10, 25, 55, 0.85) 40%,
-      rgba(10, 25, 55, 0.85) 60%,
-      rgba(15, 40, 80, 0.7) 100%);
-  border: 1px solid rgba(200, 134, 10, 0.3);
-  box-shadow: 0 0 60px rgba(15, 52, 96, 0.5), inset 0 0 40px rgba(10, 30, 70, 0.3);
+  position: relative;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+
+  /* Keeps the content inside the usable parchment area */
+  width: 100%;
+  max-width: 920px;
+  min-height: 720px;
+
+  padding: 190px 110px 170px;
+}
+
+/* Make the scroll image sit behind all text */
+.scroll-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/scroll.png") center / 100% 100% no-repeat;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Text inside the scroll */
+.scroll-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .scroll-card {
+    min-height: 600px;
+    padding: 145px 55px 130px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 420px) {
+  .scroll-card {
+    min-height: 540px;
+    padding: 130px 42px 115px;
+  }
 }
 
 /* ── Horizontal line divider ── */

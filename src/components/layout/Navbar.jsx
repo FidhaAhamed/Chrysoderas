@@ -3,38 +3,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
 import { ParchmentButton } from "../common/ParchmentButton";
 
-/* Compass rose SVG — left of logo title */
-const CompassRose = ({ size = 26 }) => (
-  <svg width={size} height={size} viewBox="0 0 100 100" fill="none">
-    <circle cx="50" cy="50" r="46" stroke="rgba(200,134,10,0.7)" strokeWidth="1.5" />
-    <circle cx="50" cy="50" r="36" stroke="rgba(200,134,10,0.35)" strokeWidth="1" />
-    {/* Cardinal diamonds */}
-    <path d="M50 4 L54 46 L50 50 L46 46 Z" fill="#e8c96a" />
-    <path d="M50 96 L54 54 L50 50 L46 54 Z" fill="rgba(200,134,10,0.5)" />
-    <path d="M4 50 L46 46 L50 50 L46 54 Z" fill="rgba(200,134,10,0.5)" />
-    <path d="M96 50 L54 46 L50 50 L54 54 Z" fill="#e8c96a" />
-    {/* Inter-cardinal */}
-    <path d="M50 50 L26 26 L50 38 Z" fill="rgba(200,134,10,0.35)" />
-    <path d="M50 50 L74 26 L50 38 Z" fill="rgba(200,134,10,0.55)" />
-    <path d="M50 50 L74 74 L50 62 Z" fill="rgba(200,134,10,0.35)" />
-    <path d="M50 50 L26 74 L50 62 Z" fill="rgba(200,134,10,0.55)" />
-    {/* N label */}
-    <text x="46.5" y="21" fontSize="11" fill="#e8c96a" fontFamily="Cinzel,serif" fontWeight="700">N</text>
-    <circle cx="50" cy="50" r="5" fill="#c8860a" />
-  </svg>
-);
-
-/* Anchor icon for the Register button */
-const AnchorIcon = ({ size = 14, color = "#140a02" }) => (
-  <svg width={size} height={size * 1.25} viewBox="0 0 48 60" fill="none">
-    <circle cx="24" cy="12" r="7" stroke={color} strokeWidth="2.8" fill="none" />
-    <line x1="24" y1="19" x2="24" y2="52" stroke={color} strokeWidth="2.8" />
-    <path d="M10 28 Q5 28 5 36 Q5 50 24 52 Q43 50 43 36 Q43 28 38 28" stroke={color} strokeWidth="2.8" fill="none" />
-    <line x1="8" y1="28" x2="40" y2="28" stroke={color} strokeWidth="2.8" />
-    <circle cx="24" cy="12" r="3.5" fill={color} />
-  </svg>
-);
-
 const NAV_LINKS = [
   { label: "Home", href: "#hero" },
   { label: "Hackathon", href: "#hackathon" },
@@ -48,55 +16,134 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const handle = () => setIsScrolled(window.scrollY > 20);
-    handle();
-    window.addEventListener("scroll", handle, { passive: true });
-    return () => window.removeEventListener("scroll", handle);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isOpen]);
 
   return (
     <>
+      {/* =====================================================
+          NAVBAR
+      ====================================================== */}
+
       <header
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
         style={{
-          background: isScrolled
-            ? "rgba(3,9,20,0.92)"
-            : "linear-gradient(180deg, rgba(2,8,16,0.72) 0%, transparent 100%)",
-          backdropFilter: isScrolled ? "blur(16px)" : undefined,
-          borderBottom: isScrolled ? "1px solid rgba(200,134,10,0.22)" : "1px solid transparent",
-        }}
-      >
-        <nav className="flex w-full items-center px-4 sm:px-6 lg:px-8"
-          style={{ height: 78 }}>
+  background: isScrolled
+    ? "rgba(3,9,20,0.92)"
+    : "linear-gradient(180deg, rgba(2,8,16,0.72) 0%, transparent 100%)",
 
-          {/* ── Logo: ISTE ── */}
-          <a href="#hero" className="flex items-center flex-shrink-0">
-            <img src="/Iste%20logo.png" alt="ISTE Logo" className="h-[4.2rem] sm:h-[4.2rem] w-auto object-contain" />
+  backdropFilter: isScrolled ? "blur(16px)" : undefined,
+
+  borderBottom: "none",
+}}
+      >
+        <nav
+          className="flex w-full items-center px-4 sm:px-6 lg:px-8"
+          style={{ height: 78 }}
+        >
+          {/* =================================================
+              ISTE LOGO
+          ================================================= */}
+
+          <a
+            href="#hero"
+            className="flex flex-shrink-0 items-center"
+          >
+            <img
+              src="/Iste%20logo.png"
+              alt="ISTE Logo"
+              className="h-[4.2rem] sm:h-[4.2rem] w-auto object-contain"
+            />
           </a>
 
-          {/* Mobile Chrysoderas Logo (Centered when lg is hidden) */}
-          <div className="flex lg:hidden flex-1 justify-center">
-            <img src="/chrysoderas%20logo.png" alt="ChrysoDeras Logo" className="h-[2.5rem] w-auto object-contain drop-shadow-[0_0_10px_rgba(200,134,10,0.15)]" />
+          {/* =================================================
+              MOBILE CHRYSODERAS LOGO
+          ================================================= */}
+
+          <div className="flex flex-1 justify-center lg:hidden">
+            <a href="#hero">
+              <img
+                src="/chrysoderas%20logo.png"
+                alt="ChrysoDeras Logo"
+                className="
+                  h-[2.5rem]
+                  w-auto
+                  object-contain
+                  drop-shadow-[0_0_10px_rgba(200,134,10,0.15)]
+                "
+              />
+            </a>
           </div>
 
-          {/* ── Desktop nav links & Chrysoderas Logo ── */}
-          <div className="hidden lg:flex items-center justify-center gap-8 flex-1">
-            <a href="#hero" className="flex-shrink-0 mr-6">
-              <img src="/chrysoderas%20logo.png" alt="ChrysoDeras Logo" className="h-[3.25rem] w-auto object-contain drop-shadow-[0_0_10px_rgba(200,134,10,0.15)]" />
+          {/* =================================================
+              DESKTOP NAV
+          ================================================= */}
+
+          <div className="hidden lg:flex flex-1 items-center justify-center gap-8">
+
+            {/* ChrysoDeras Logo */}
+
+            <a
+              href="#hero"
+              className="mr-6 flex-shrink-0"
+            >
+              <img
+                src="/chrysoderas%20logo.png"
+                alt="ChrysoDeras Logo"
+                className="
+                  h-[3.25rem]
+                  w-auto
+                  object-contain
+                  drop-shadow-[0_0_10px_rgba(200,134,10,0.15)]
+                "
+              />
             </a>
+
+            {/* Navigation */}
+
             <ul className="flex items-center gap-9">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href}
-                    className="relative text-[11px] uppercase tracking-[0.13em] transition-all duration-300"
-                    style={{ fontFamily: "'Cinzel', serif", color: "rgba(210,220,235,0.82)" }}
-                    onMouseEnter={(e) => { e.currentTarget.style.color = "#e8c96a"; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(210,220,235,0.82)"; }}
+                  <a
+                    href={link.href}
+                    className="
+                      relative
+                      flex-shrink-0
+                      text-[11px]
+                      uppercase
+                      tracking-[0.13em]
+                      transition-all
+                      duration-300
+                    "
+                    style={{
+                      fontFamily: "'Cinzel', serif",
+                      color: "rgba(210,220,235,0.82)",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = "#e8c96a";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.color =
+                        "rgba(210,220,235,0.82)";
+                    }}
                   >
                     {link.label}
                   </a>
@@ -104,85 +151,269 @@ const Navbar = () => {
               ))}
             </ul>
 
-            {/* Register Button next to Schedule */}
+            {/* Register */}
+
             <div className="ml-8">
-              <ParchmentButton href="#register" size="sm" icon={<AnchorIcon />}>
+              <ParchmentButton
+                href="#register"
+                size="sm"
+                icon={
+                  <img
+                    src="/anchor3.png"
+                    alt=""
+                    className="h-5 w-5 object-contain"
+                  />
+                }
+              >
                 Register
               </ParchmentButton>
             </div>
           </div>
 
-          {/* ── Invisible Spacer to Balance ISTE Logo ── */}
+          {/* =================================================
+              BALANCE SPACER
+          ================================================= */}
+
           <div className="hidden lg:block w-[100px]" />
 
-          {/* Mobile hamburger */}
-          <button type="button" onClick={() => setIsOpen(p => !p)}
-            className="lg:hidden ml-auto text-2xl"
-            style={{ color: "rgba(200,134,10,0.85)" }}
-            aria-label="Toggle menu">
+          {/* =================================================
+              MOBILE MENU BUTTON
+          ================================================= */}
+
+          <button
+            type="button"
+            onClick={() => setIsOpen((prev) => !prev)}
+            className="
+              lg:hidden
+              ml-auto
+              flex
+              h-10
+              w-10
+              items-center
+              justify-center
+              text-2xl
+              transition-all
+              duration-300
+            "
+            style={{
+              color: "rgba(200,134,10,0.85)",
+            }}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+          >
             {isOpen ? <FiX /> : <FiMenu />}
           </button>
         </nav>
-
       </header>
 
-      {/* Full-Screen Mobile Drawer Menu (Outside Header stacking context) */}
+      {/* =====================================================
+          MOBILE DRAWER
+      ====================================================== */}
+
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
-            className="fixed inset-0 z-[9999] flex flex-col justify-center bg-[rgba(2,8,16,0.98)] backdrop-blur-3xl lg:hidden"
-            style={{ borderLeft: "1px solid rgba(200,134,10,0.25)" }}
+            initial={{
+              opacity: 0,
+              x: "100%",
+            }}
+            animate={{
+              opacity: 1,
+              x: 0,
+            }}
+            exit={{
+              opacity: 0,
+              x: "100%",
+            }}
+            transition={{
+              type: "tween",
+              duration: 0.4,
+              ease: "easeInOut",
+            }}
+            className="
+              fixed
+              inset-0
+              z-[9999]
+              flex
+              flex-col
+              justify-center
+              bg-[rgba(2,8,16,0.65)]
+              backdrop-blur-md
+              lg:hidden
+            "
+            style={{
+              borderLeft:
+                "1px solid rgba(200,134,10,0.25)",
+            }}
           >
-            {/* Close Button top right */}
-            <button
-              type="button"
-              onClick={() => setIsOpen(false)}
-              className="absolute top-6 right-6 text-3xl z-50 text-[#c8860a]"
-            >
-              <FiX />
-            </button>
+
+            {/* =================================================
+                MOBILE MENU HEADER
+            ================================================= */}
+
+            <div className="absolute top-0 left-0 right-0 flex h-[78px] items-center justify-between px-5">
+
+              <img
+                src="/chrysoderas%20logo.png"
+                alt="ChrysoDeras Logo"
+                className="
+                  h-[2.5rem]
+                  w-auto
+                  object-contain
+                  opacity-90
+                "
+              />
+
+              <button
+                type="button"
+                onClick={() => setIsOpen(false)}
+                className="
+                  flex
+                  h-10
+                  w-10
+                  items-center
+                  justify-center
+                  text-3xl
+                  transition-colors
+                  duration-300
+                "
+                style={{
+                  color: "#c8860a",
+                }}
+                aria-label="Close menu"
+              >
+                <FiX />
+              </button>
+            </div>
+
+            {/* =================================================
+                MOBILE LINKS
+            ================================================= */}
 
             <motion.ul
               initial="hidden"
               animate="visible"
               exit="hidden"
               variants={{
-                visible: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
-                hidden: { transition: { staggerChildren: 0.05 } }
+                visible: {
+                  transition: {
+                    staggerChildren: 0.1,
+                    delayChildren: 0.2,
+                  },
+                },
+
+                hidden: {
+                  transition: {
+                    staggerChildren: 0.05,
+                  },
+                },
               }}
-              className="flex flex-col items-center gap-8 px-6"
+              className="
+                flex
+                flex-col
+                items-center
+                gap-8
+                px-6
+              "
             >
               {NAV_LINKS.map((link) => (
                 <motion.li
                   key={link.href}
                   variants={{
-                    hidden: { opacity: 0, y: 40 },
-                    visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
+                    hidden: {
+                      opacity: 0,
+                      y: 40,
+                    },
+
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      transition: {
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 24,
+                      },
+                    },
                   }}
                 >
-                  <a href={link.href} onClick={() => setIsOpen(false)}
-                    className="hover-target transition-colors duration-300 hover:text-[#e8c96a]"
-                    style={{ fontFamily: "'Cinzel', serif", fontSize: "1.45rem", letterSpacing: "0.2em", color: "rgba(210,220,235,0.9)" }}>
+                  <a
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className="
+                      hover-target
+                      transition-colors
+                      duration-300
+                      hover:text-[#e8c96a]
+                    "
+                    style={{
+                      fontFamily: "'Cinzel', serif",
+                      fontSize: "1.35rem",
+                      letterSpacing: "0.16em",
+                      color: "rgba(210,220,235,0.9)",
+                    }}
+                  >
                     {link.label}
                   </a>
                 </motion.li>
               ))}
+
+              {/* =================================================
+                  MOBILE REGISTER
+              ================================================= */}
+
               <motion.li
                 variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1, scale: 1, transition: { type: "spring", delay: 0.5 } }
+                  hidden: {
+                    opacity: 0,
+                    scale: 0.8,
+                  },
+
+                  visible: {
+                    opacity: 1,
+                    scale: 1,
+                    transition: {
+                      type: "spring",
+                      delay: 0.5,
+                    },
+                  },
                 }}
                 className="mt-6"
-                onClick={() => setIsOpen(false)}>
-                <ParchmentButton href="#register" size="lg" icon={<AnchorIcon size={18} />}>
+                onClick={() => setIsOpen(false)}
+              >
+                <ParchmentButton
+                  href="#register"
+                  size="lg"
+                  icon={
+                    <img
+                      src="/anchor3.png"
+                      alt=""
+                      className="h-5 w-5 object-contain"
+                    />
+                  }
+                >
                   Register Now
                 </ParchmentButton>
               </motion.li>
             </motion.ul>
+
+            {/* =================================================
+                SUBTLE COMPASS DECORATION
+            ================================================= */}
+
+            <img
+              src="/compass5.png"
+              alt=""
+              className="
+                pointer-events-none
+                absolute
+                bottom-8
+                left-1/2
+                h-20
+                w-20
+                -translate-x-1/2
+                object-contain
+                opacity-[0.08]
+              "
+            />
           </motion.div>
         )}
       </AnimatePresence>
