@@ -16,3 +16,12 @@ export const socialLinks = {
   instagram: "https://www.instagram.com/istemace/",
   linkedin: "https://www.linkedin.com/company/iste-mace/",
 };
+
+export const venue = {
+  name: "Mar Athanasius College of Engineering",
+  locality: "Kothamangalam",
+  mapEmbedUrl:
+    "https://www.google.com/maps?q=Mar+Athanasius+College+of+Engineering,+Kothamangalam&output=embed",
+  mapLinkUrl:
+    "https://www.google.com/maps/search/?api=1&query=Mar+Athanasius+College+of+Engineering,+Kothamangalam",
+};

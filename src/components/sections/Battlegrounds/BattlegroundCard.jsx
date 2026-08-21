@@ -270,12 +270,6 @@ const BattlegroundCard = ({
         }}
       >
 
-        <PirateIcon
-          src="/map_scroll.png"
-          size={19}
-          opacity={0.75}
-        />
-
         <span>
           {battleground.venue}
         </span>

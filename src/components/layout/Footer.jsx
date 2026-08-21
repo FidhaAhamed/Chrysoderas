@@ -1,8 +1,8 @@
-import { FiPhone } from "react-icons/fi";
+import { FiPhone, FiMapPin } from "react-icons/fi";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FiChevronRight } from "react-icons/fi";
 import { ParchmentButton } from "../common/ParchmentButton";
-import { coordinators, socialLinks } from "../../data/coordinators";
+import { coordinators, socialLinks, venue } from "../../data/coordinators";
 
 /* =========================================================
    FOOTER
@@ -273,6 +273,71 @@ const Footer = () => (
           </div>
 
         </div>
+      </div>
+
+      {/* =====================================================
+          VENUE MAP
+      ====================================================== */}
+
+      <div
+        className="mt-12 sm:mt-16"
+        style={{
+          borderTop: "1px solid rgba(30,106,138,0.2)",
+          paddingTop: "2.5rem",
+        }}
+      >
+
+        <h4
+          className="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.16em] sm:justify-start"
+          style={{
+            fontFamily: "'Cinzel', serif",
+            color: "rgba(100,166,198,0.95)",
+          }}
+        >
+          <FiMapPin
+            className="text-sm"
+            style={{ color: "rgba(200,134,10,0.85)" }}
+          />
+          <span>Venue</span>
+        </h4>
+
+        <p
+          className="mt-3 text-center sm:text-left"
+          style={{
+            fontFamily: "'Cormorant Garamond', serif",
+            fontSize: "1.1rem",
+            fontStyle: "italic",
+            color: "#c8d8e8",
+          }}
+        >
+          {venue.name}, {venue.locality}
+        </p>
+
+        <a
+          href={venue.mapLinkUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-5 block overflow-hidden"
+          style={{
+            border: "1px solid rgba(200,134,10,0.28)",
+            borderRadius: "3px",
+            boxShadow: "0 0 30px rgba(26,74,107,0.2)",
+          }}
+        >
+          <iframe
+            title="ChrysoDeras Venue Map"
+            src={venue.mapEmbedUrl}
+            width="100%"
+            height="280"
+            style={{
+              border: 0,
+              display: "block",
+              filter: "grayscale(0.3) invert(0.92) contrast(0.9)",
+            }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </a>
       </div>
 
       {/* =====================================================

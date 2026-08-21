@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { FiMapPin } from "react-icons/fi";
 import { ParchmentButton } from "../common/ParchmentButton";
+import { venue } from "../../data/coordinators";
 
 const LAUNCH_DATE = new Date("2026-09-11T09:00:00+05:30");
 
@@ -108,10 +110,10 @@ const GoldRule = ({ children }) => (
 /* =========================================================
    DATE ROW
 ========================================================= */
-
+ 
 const DateRow = ({ children }) => (
   <div className="flex items-center justify-center gap-3 select-none">
-
+ 
     <div
       className="h-px w-10 sm:w-16"
       style={{
@@ -119,13 +121,13 @@ const DateRow = ({ children }) => (
           "linear-gradient(90deg, transparent, rgba(200,134,10,0.7))",
       }}
     />
-
-    <Star size={10} />
-
+ 
+    <Star size={12} />
+ 
     <span
       style={{
         fontFamily: "'Cinzel', serif",
-        fontSize: "0.95rem",
+        fontSize: "clamp(1rem, 2.6vw, 1.2rem)",
         letterSpacing: "0.2em",
         color: "rgba(200,134,10,0.9)",
         textTransform: "uppercase",
@@ -134,9 +136,9 @@ const DateRow = ({ children }) => (
     >
       {children}
     </span>
-
+ 
     <Star size={12} />
-
+ 
     <div
       className="h-px w-10 sm:w-16"
       style={{
@@ -274,24 +276,57 @@ const Hero = () => {
           }}
         >
           Every voyage begins with a spark.
-          <br className="hidden sm:block" />
           Chart yours through the storm.
         </motion.p>
 
-        {/* =================================================
+         {/* =================================================
             DATE
         ================================================= */}
-
+ 
         <motion.div
           initial="hidden"
           animate="visible"
           custom={0.3}
           variants={fadeUp}
-          className="mt-4"
+          className="mt-7 sm:mt-8"
         >
           <DateRow>
             September 11 &amp; 12, 2026
           </DateRow>
+        </motion.div>
+ 
+        {/* =================================================
+            VENUE
+        ================================================= */}
+ 
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          custom={0.35}
+          variants={fadeUp}
+          className="mt-4 sm:mt-5 flex items-start sm:items-center justify-center gap-2 px-4"
+        >
+          <FiMapPin
+            className="flex-shrink-0 mt-1 sm:mt-0"
+            style={{
+              color: "rgba(168,196,216,0.75)",
+              fontSize: "clamp(1rem, 2.4vw, 1.15rem)",
+            }}
+          />
+ 
+          <span
+            className="text-center"
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontSize: "clamp(1.05rem, 2.8vw, 1.3rem)",
+              fontStyle: "italic",
+              color: "rgba(168,196,216,0.85)",
+              letterSpacing: "0.01em",
+              lineHeight: 1.4,
+            }}
+          >
+            {venue.name}, {venue.locality}
+          </span>
         </motion.div>
 
         {/* =================================================
@@ -447,7 +482,7 @@ const Hero = () => {
         href="#lore"
         className="
           absolute
-          bottom-7
+          bottom-5
           z-10
           flex
           cursor-pointer

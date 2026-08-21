@@ -8,7 +8,6 @@ export const battlegrounds = [
     description:
       "Dive into the world of Tiny Machine Learning. Learn to build, train, and deploy intelligent AI models directly onto resource-constrained microcontrollers.",
     tag: "Hands-on Workshop",
-    venue: "Computer Lab, Block A (TBA)",
     rules: [
       "No prior hardware ML experience required.",
       "Bring your own laptop with the required toolchains installed.",
@@ -26,7 +25,6 @@ export const battlegrounds = [
     description:
       "Step into the tank. Pitch your most innovative product or business ideas to our panel of judges and secure your investment.",
     tag: "Pitch & Prototype",
-    venue: "Seminar Hall, Main Block (TBA)",
     rules: [
       "Each team gets a fixed pitch window followed by judge Q&A.",
       "Ideas must include a working prototype, mockup, or demo.",
@@ -44,7 +42,6 @@ export const battlegrounds = [
     description:
       "Test your structural engineering limits. Design, construct, and test the load-bearing capacity of your custom bridge.",
     tag: "Design & Destroy",
-    venue: "Civil Engineering Yard (TBA)",
     rules: [
       "Bridges must be built using only the materials provided on-site.",
       "Each team has a fixed build time before live load-testing begins.",
