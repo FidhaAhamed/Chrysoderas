@@ -3,8 +3,10 @@ import { motion } from "framer-motion";
 import { ParchmentButton } from "../common/ParchmentButton";
 
 const LAUNCH_DATE = new Date("2026-09-11T09:00:00+05:30");
+
 const getTimeLeft = () => {
   const diff = Math.max(LAUNCH_DATE.getTime() - Date.now(), 0);
+
   return {
     days: Math.floor(diff / (1000 * 60 * 60 * 24)),
     hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
@@ -14,98 +16,227 @@ const getTimeLeft = () => {
 };
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (d = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.8, delay: d, ease: "easeOut" } }),
+  hidden: {
+    opacity: 0,
+    y: 24,
+  },
+
+  visible: (d = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      delay: d,
+      ease: "easeOut",
+    },
+  }),
 };
 
-/* ── Compass rose icon (used as ship wheel icon in button) ── */
-const CompassIcon = ({ size = 22, color = "#1a0a00" }) => (
-  <svg width={size} height={size} viewBox="0 0 100 100" fill="none">
-    <circle cx="50" cy="50" r="44" stroke={color} strokeWidth="3" />
-    <circle cx="50" cy="50" r="16" stroke={color} strokeWidth="2.5" fill="none" />
-    <path d="M50 6 L54 46 L50 50 L46 46 Z" fill={color} />
-    <path d="M50 94 L54 54 L50 50 L46 54 Z" fill={color} opacity="0.5" />
-    <path d="M6 50 L46 46 L50 50 L46 54 Z" fill={color} opacity="0.5" />
-    <path d="M94 50 L54 46 L50 50 L54 54 Z" fill={color} />
-    <text x="47" y="22" fontSize="12" fill={color} fontFamily="Cinzel,serif" fontWeight="bold">N</text>
-    <circle cx="50" cy="50" r="5" fill={color} />
-  </svg>
+/* =========================================================
+   PUBLIC ASSET ICONS
+========================================================= */
+
+const CompassIcon = ({ size = 22 }) => (
+  <img
+    src="/compass5.png"
+    alt=""
+    aria-hidden="true"
+    style={{
+      width: size,
+      height: size,
+      objectFit: "contain",
+    }}
+  />
 );
 
-/* ── Star sparkle (4-pointed) ── */
-const Star = ({ size = 14, color = "#c8860a" }) => (
-  <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
-    <path d="M16 0 L17.8 14.2 L32 16 L17.8 17.8 L16 32 L14.2 17.8 L0 16 L14.2 14.2 Z" fill={color} />
-  </svg>
+const Star = ({ size = 14, className = "" }) => (
+  <img
+    src="/star.png"
+    alt=""
+    aria-hidden="true"
+    className={className}
+    style={{
+      width: size,
+      height: size,
+      objectFit: "contain",
+    }}
+  />
 );
 
-/* ── Decorative badge rule: ————✦ TEXT ✦———— ── */
+/* =========================================================
+   GOLD DECORATIVE RULE
+========================================================= */
+
 const GoldRule = ({ children }) => (
   <div className="flex items-center justify-center gap-3 select-none">
-    <div className="h-px w-16 sm:w-24" style={{ background: "linear-gradient(90deg, transparent, rgba(200,134,10,0.85))" }} />
+
+    <div
+      className="h-px w-16 sm:w-24"
+      style={{
+        background:
+          "linear-gradient(90deg, transparent, rgba(200,134,10,0.85))",
+      }}
+    />
+
     <Star size={12} />
-    <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.95rem", letterSpacing: "0.25em", color: "rgba(200,134,10,0.9)", textTransform: "uppercase", fontWeight: 600 }}>
+
+    <span
+      style={{
+        fontFamily: "'Cinzel', serif",
+        fontSize: "0.95rem",
+        letterSpacing: "0.25em",
+        color: "rgba(200,134,10,0.9)",
+        textTransform: "uppercase",
+        fontWeight: 600,
+      }}
+    >
       {children}
     </span>
+
     <Star size={14} />
-    <div className="h-px w-16 sm:w-24" style={{ background: "linear-gradient(90deg, rgba(200,134,10,0.85), transparent)" }} />
+
+    <div
+      className="h-px w-16 sm:w-24"
+      style={{
+        background:
+          "linear-gradient(90deg, rgba(200,134,10,0.85), transparent)",
+      }}
+    />
   </div>
 );
 
-/* ── Date row with sparkle icons ── */
+/* =========================================================
+   DATE ROW
+========================================================= */
+
 const DateRow = ({ children }) => (
   <div className="flex items-center justify-center gap-3 select-none">
-    <div className="h-px w-10 sm:w-16" style={{ background: "linear-gradient(90deg, transparent, rgba(200,134,10,0.7))" }} />
+
+    <div
+      className="h-px w-10 sm:w-16"
+      style={{
+        background:
+          "linear-gradient(90deg, transparent, rgba(200,134,10,0.7))",
+      }}
+    />
+
     <Star size={10} />
-    <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.95rem", letterSpacing: "0.2em", color: "rgba(200,134,10,0.9)", textTransform: "uppercase", fontWeight: 600 }}>
+
+    <span
+      style={{
+        fontFamily: "'Cinzel', serif",
+        fontSize: "0.95rem",
+        letterSpacing: "0.2em",
+        color: "rgba(200,134,10,0.9)",
+        textTransform: "uppercase",
+        fontWeight: 600,
+      }}
+    >
       {children}
     </span>
+
     <Star size={12} />
-    <div className="h-px w-10 sm:w-16" style={{ background: "linear-gradient(90deg, rgba(200,134,10,0.7), transparent)" }} />
+
+    <div
+      className="h-px w-10 sm:w-16"
+      style={{
+        background:
+          "linear-gradient(90deg, rgba(200,134,10,0.7), transparent)",
+      }}
+    />
   </div>
 );
 
-/* ── Anchor SVG ── */
-const AnchorSVG = ({ size = 20, color = "rgba(200,134,10,0.75)" }) => (
-  <svg width={size} height={size} viewBox="0 0 48 60" fill="none">
-    <circle cx="24" cy="12" r="7" stroke={color} strokeWidth="2.5" fill="none" />
-    <line x1="24" y1="19" x2="24" y2="52" stroke={color} strokeWidth="2.5" />
-    <path d="M10 28 Q5 28 5 36 Q5 50 24 52 Q43 50 43 36 Q43 28 38 28" stroke={color} strokeWidth="2.5" fill="none" />
-    <line x1="8" y1="28" x2="40" y2="28" stroke={color} strokeWidth="2.5" />
-    <circle cx="24" cy="12" r="3.5" fill={color} />
-  </svg>
-);
+/* =========================================================
+   HERO
+========================================================= */
 
 const Hero = () => {
   const [timeLeft, setTimeLeft] = useState(getTimeLeft);
+
   useEffect(() => {
-    const t = setInterval(() => setTimeLeft(getTimeLeft()), 1000);
+    const t = setInterval(() => {
+      setTimeLeft(getTimeLeft());
+    }, 1000);
+
     return () => clearInterval(t);
   }, []);
 
   const UNITS = [
-    { label: "Days", v: timeLeft.days },
-    { label: "Hours", v: timeLeft.hours },
-    { label: "Minutes", v: timeLeft.minutes },
-    { label: "Seconds", v: timeLeft.seconds },
+    {
+      label: "Days",
+      v: timeLeft.days,
+    },
+    {
+      label: "Hours",
+      v: timeLeft.hours,
+    },
+    {
+      label: "Minutes",
+      v: timeLeft.minutes,
+    },
+    {
+      label: "Seconds",
+      v: timeLeft.seconds,
+    },
   ];
 
   return (
-    <section id="hero" className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden px-6 py-24">
+    <section
+      id="hero"
+      className="
+        relative
+        flex
+        min-h-screen
+        w-full
+        flex-col
+        items-center
+        justify-center
+        overflow-hidden
+        px-6
+        py-24
+      "
+    >
 
+      {/* =====================================================
+          HERO CONTENT
+      ====================================================== */}
 
+      <div
+        className="
+          relative
+          z-10
+          flex
+          flex-col
+          items-center
+          text-center
+        "
+      >
 
-      {/* ── CONTENT — centered ── */}
-      <div className="relative z-10 flex flex-col items-center text-center">
+        {/* =================================================
+            TOP BADGE
+        ================================================= */}
 
-        {/* Badge */}
-        <motion.div initial="hidden" animate="visible" custom={0} variants={fadeUp}>
-          <GoldRule>The Golden Fleece Awaits</GoldRule>
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          custom={0}
+          variants={fadeUp}
+        >
+          <GoldRule>
+            The Golden Fleece Awaits
+          </GoldRule>
         </motion.div>
 
-        {/* Main title */}
+        {/* =================================================
+            TITLE
+        ================================================= */}
+
         <motion.h1
-          initial="hidden" animate="visible" custom={0.12} variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          custom={0.12}
+          variants={fadeUp}
           className="mt-5 max-w-full break-words"
           style={{
             fontFamily: "'Uncial Antiqua', cursive",
@@ -114,6 +245,7 @@ const Hero = () => {
             letterSpacing: "0.02em",
             textTransform: "uppercase",
             color: "#af8b33",
+
             textShadow:
               "0 0 80px rgba(200,134,10,0.25)," +
               "0 2px 40px rgba(0,0,0,0.9)," +
@@ -123,9 +255,15 @@ const Hero = () => {
           ChrysoDeras '26
         </motion.h1>
 
-        {/* Sub-copy */}
+        {/* =================================================
+            SUBTITLE
+        ================================================= */}
+
         <motion.p
-          initial="hidden" animate="visible" custom={0.22} variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          custom={0.22}
+          variants={fadeUp}
           className="mt-5 italic"
           style={{
             fontFamily: "'Cormorant Garamond', serif",
@@ -135,58 +273,230 @@ const Hero = () => {
             letterSpacing: "0.01em",
           }}
         >
-          Every voyage begins with a spark. Chart yours through the storm.
+          Every voyage begins with a spark.
+          <br className="hidden sm:block" />
+          Chart yours through the storm.
         </motion.p>
 
-        {/* Date */}
-        <motion.div initial="hidden" animate="visible" custom={0.3} variants={fadeUp} className="mt-4">
-          <DateRow>September 11 &amp; 12, 2026</DateRow>
+        {/* =================================================
+            DATE
+        ================================================= */}
+
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          custom={0.3}
+          variants={fadeUp}
+          className="mt-4"
+        >
+          <DateRow>
+            September 11 &amp; 12, 2026
+          </DateRow>
         </motion.div>
 
-        {/* Countdown */}
+        {/* =================================================
+            COUNTDOWN
+        ================================================= */}
+
         <motion.div
-          initial="hidden" animate="visible" custom={0.4} variants={fadeUp}
-          className="mt-8 flex justify-center gap-2 sm:gap-5 w-full max-w-xl mx-auto"
+          initial="hidden"
+          animate="visible"
+          custom={0.4}
+          variants={fadeUp}
+          className="
+            mt-8
+            flex
+            w-full
+            max-w-xl
+            justify-center
+            gap-2
+            sm:gap-5
+            mx-auto
+          "
         >
           {UNITS.map((u) => (
-            <div key={u.label}
-              className="flex flex-col items-center justify-center px-2 sm:px-5 py-2 sm:py-3 flex-1 sm:flex-none sm:min-w-[72px] max-w-[80px] sm:max-w-none"
+            <motion.div
+              key={u.label}
+              whileHover={{
+                y: -4,
+                scale: 1.03,
+              }}
+              transition={{
+                duration: 0.25,
+              }}
+              className="
+                relative
+                flex
+                flex-1
+                max-w-[80px]
+                flex-col
+                items-center
+                justify-center
+                px-2
+                py-3
+                sm:min-w-[72px]
+                sm:flex-none
+                sm:px-5
+              "
               style={{
-                background: "linear-gradient(135deg, rgba(20, 35, 55, 0.85), rgba(10, 20, 30, 0.95))",
-                border: "1px solid rgba(200,134,10,0.45)",
+                background:
+                  "linear-gradient(135deg, rgba(20,35,55,0.88), rgba(10,20,30,0.96))",
+
+                border:
+                  "1px solid rgba(200,134,10,0.45)",
+
                 backdropFilter: "blur(12px)",
-                boxShadow: "inset 0 0 20px rgba(26,74,107,0.08), 0 4px 20px rgba(0,0,0,0.4)",
-              }}>
-              <span className="text-2xl sm:text-[2.2rem]" style={{ fontFamily: "'Cinzel', serif", color: "#e8c96a", lineHeight: 1 }}>
+
+                boxShadow:
+                  "inset 0 0 20px rgba(26,74,107,0.08), 0 4px 20px rgba(0,0,0,0.4)",
+              }}
+            >
+
+              {/* Decorative corners */}
+
+              <span
+                className="absolute left-0 top-0 h-2 w-2"
+                style={{
+                  borderLeft: "1px solid #d4a017",
+                  borderTop: "1px solid #d4a017",
+                }}
+              />
+
+              <span
+                className="absolute right-0 top-0 h-2 w-2"
+                style={{
+                  borderRight: "1px solid #d4a017",
+                  borderTop: "1px solid #d4a017",
+                }}
+              />
+
+              <span
+                className="absolute bottom-0 left-0 h-2 w-2"
+                style={{
+                  borderLeft: "1px solid #d4a017",
+                  borderBottom: "1px solid #d4a017",
+                }}
+              />
+
+              <span
+                className="absolute bottom-0 right-0 h-2 w-2"
+                style={{
+                  borderRight: "1px solid #d4a017",
+                  borderBottom: "1px solid #d4a017",
+                }}
+              />
+
+              {/* Number */}
+
+              <span
+                className="text-2xl sm:text-[2.2rem]"
+                style={{
+                  fontFamily: "'Cinzel', serif",
+                  color: "#e8c96a",
+                  lineHeight: 1,
+                }}
+              >
                 {String(u.v).padStart(2, "0")}
               </span>
-              <span className="mt-1 text-[8px] sm:text-[9px] uppercase tracking-widest"
-                style={{ color: "rgba(168,196,216,0.7)" }}>
+
+              {/* Label */}
+
+              <span
+                className="
+                  mt-1
+                  text-[8px]
+                  uppercase
+                  tracking-widest
+                  sm:text-[9px]
+                "
+                style={{
+                  color: "rgba(168,196,216,0.7)",
+                }}
+              >
                 {u.label}
               </span>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
 
-        {/* CTA — parchment pill button */}
-        <motion.div initial="hidden" animate="visible" custom={0.54} variants={fadeUp} className="mt-10">
-          <ParchmentButton href="#register" icon={<CompassIcon size={22} color="#1a0a00" />}>
+        {/* =================================================
+            CTA
+        ================================================= */}
+
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          custom={0.54}
+          variants={fadeUp}
+          className="mt-10"
+        >
+          <ParchmentButton
+            href="#register"
+            icon={<CompassIcon size={24} />}
+          >
             Claim Your Fleece
           </ParchmentButton>
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* =====================================================
+          SCROLL INDICATOR
+      ====================================================== */}
+
       <motion.a
         href="#lore"
-        className="absolute bottom-8 z-10 flex flex-col items-center gap-2 cursor-pointer hover-target p-4"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+        className="
+          absolute
+          bottom-7
+          z-10
+          flex
+          cursor-pointer
+          flex-col
+          items-center
+          gap-2
+          p-4
+          hover-target
+        "
+        animate={{
+          y: [0, 8, 0],
+          opacity: [0.55, 1, 0.55],
+        }}
+        transition={{
+          duration: 2.4,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
       >
-        <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.55rem", letterSpacing: "0.3em", color: "rgba(200,134,10,0.7)", textTransform: "uppercase" }}>
+
+        <span
+          style={{
+            fontFamily: "'Cinzel', serif",
+            fontSize: "0.55rem",
+            letterSpacing: "0.3em",
+            color: "rgba(200,134,10,0.7)",
+            textTransform: "uppercase",
+          }}
+        >
           Scroll
         </span>
-        <AnchorSVG size={18} color="rgba(200,134,10,0.65)" />
+
+        {/* REAL PNG ANCHOR */}
+
+        <motion.img
+          src="/anchor1.png"
+          alt=""
+          aria-hidden="true"
+          className="h-7 w-7 object-contain"
+          animate={{
+            rotate: [0, -5, 5, 0],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+
       </motion.a>
     </section>
   );
