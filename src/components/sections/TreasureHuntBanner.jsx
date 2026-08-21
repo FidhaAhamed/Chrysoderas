@@ -1,15 +1,15 @@
 import { motion } from "framer-motion";
 
-/* ─────────────────────────────────────────────
-   Shared image component
-───────────────────────────────────────────── */
+/* =========================================================
+   PUBLIC ASSET
+========================================================= */
 
 const PirateImage = ({
   src,
   alt = "",
-  size,
-  className = "",
+  size = 18,
   opacity = 1,
+  className = "",
 }) => (
   <img
     src={src}
@@ -24,57 +24,59 @@ const PirateImage = ({
   />
 );
 
-/* ─────────────────────────────────────────────
-   Gold divider
-───────────────────────────────────────────── */
+/* =========================================================
+   ROPE DIVIDER
+========================================================= */
 
 const RopeDivider = () => (
-  <div className="flex w-full items-center gap-4">
+  <div className="flex w-full items-center gap-3">
     <div
-      className="h-[1px] flex-1"
+      className="h-px flex-1"
       style={{
         background:
-          "linear-gradient(90deg, transparent, rgba(91,54,12,0.9))",
+          "linear-gradient(90deg, transparent, rgba(91,55,18,0.72))",
       }}
     />
 
     <motion.div
+      className="flex-shrink-0"
       animate={{
-        rotate: [0, -4, 4, 0],
-        y: [0, -2, 0],
+        rotate: [0, -3, 3, 0],
+        y: [0, -1, 0],
       }}
       transition={{
         duration: 4,
         repeat: Infinity,
         ease: "easeInOut",
       }}
-      className="flex-shrink-0"
     >
       <PirateImage
         src="/anchor3.png"
-        alt=""
-        size={25}
-        opacity={0.95}
+        size={22}
+        opacity={0.72}
       />
     </motion.div>
 
     <div
-      className="h-[1px] flex-1"
+      className="h-px flex-1"
       style={{
         background:
-          "linear-gradient(90deg, rgba(91,54,12,0.9), transparent)",
+          "linear-gradient(90deg, rgba(91,55,18,0.72), transparent)",
       }}
     />
   </div>
 );
 
-/* ─────────────────────────────────────────────
-   Compass decoration
-───────────────────────────────────────────── */
+/* =========================================================
+   COMPASS
+========================================================= */
 
-const CompassCorner = ({ size = 120, opacity = 0.14 }) => (
+const CompassCorner = ({
+  size = 120,
+  opacity = 0.1,
+}) => (
   <img
-    src="/compass.png"
+    src="/compass5.png"
     alt=""
     aria-hidden="true"
     className="pointer-events-none object-contain"
@@ -86,27 +88,9 @@ const CompassCorner = ({ size = 120, opacity = 0.14 }) => (
   />
 );
 
-/* ─────────────────────────────────────────────
-   Gold sparkle
-───────────────────────────────────────────── */
-
-const Sparkle = ({ size = 12 }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 32 32"
-    fill="none"
-  >
-    <path
-      d="M16 2 L17.5 14.5 L30 16 L17.5 17.5 L16 30 L14.5 17.5 L2 16 L14.5 14.5 Z"
-      fill="rgba(200,134,10,0.85)"
-    />
-  </svg>
-);
-
-/* ─────────────────────────────────────────────
-   Treasure Hunt Banner
-───────────────────────────────────────────── */
+/* =========================================================
+   TREASURE HUNT
+========================================================= */
 
 const TreasureHuntBanner = () => {
   return (
@@ -119,88 +103,54 @@ const TreasureHuntBanner = () => {
         items-center
         justify-center
         overflow-hidden
-        py-24
-        sm:py-32
-        lg:py-40
+        py-10
+        sm:py-20
+        lg:py-28
       "
       style={{
         background:
-          "radial-gradient(ellipse 80% 60% at 50% 30%, rgba(26,74,107,0.38) 0%, transparent 65%)," +
-          "radial-gradient(ellipse 55% 45% at 80% 75%, rgba(15,52,96,0.25) 0%, transparent 55%)",
+          "radial-gradient(ellipse 75% 60% at 50% 45%, rgba(26,74,107,0.3), transparent 70%)",
       }}
     >
 
-      {/* ═════════════════════════════════════
-          BACKGROUND MAP GRID
-      ═════════════════════════════════════ */}
+      {/* =====================================================
+          ATMOSPHERIC BACKGROUND
+      ====================================================== */}
 
-      <div className="pointer-events-none absolute inset-0 map-grid opacity-50" />
-
-      {/* ═════════════════════════════════════
-          ATMOSPHERIC GLOW
-      ═════════════════════════════════════ */}
+      <div className="pointer-events-none absolute inset-0 map-grid opacity-25" />
 
       <motion.div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(65% 65% at 50% 45%, rgba(26,74,107,0.22), transparent 70%)",
+            "radial-gradient(ellipse 60% 55% at 50% 45%, rgba(26,74,107,0.14), transparent 72%)",
         }}
         animate={{
-          opacity: [0.6, 1, 0.6],
+          opacity: [0.65, 1, 0.65],
         }}
         transition={{
-          duration: 7,
+          duration: 8,
           repeat: Infinity,
           ease: "easeInOut",
         }}
       />
 
-      {/* ═════════════════════════════════════
-          GOLD PARTICLES
-      ═════════════════════════════════════ */}
-
-      {[...Array(12)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="pointer-events-none absolute"
-          style={{
-            top: `${10 + Math.random() * 80}%`,
-            left: `${5 + Math.random() * 90}%`,
-          }}
-          animate={{
-            opacity: [0.15, 0.8, 0.15],
-            scale: [0.8, 1.15, 0.8],
-          }}
-          transition={{
-            duration: 2.5 + Math.random() * 3,
-            repeat: Infinity,
-            delay: Math.random() * 4,
-            ease: "easeInOut",
-          }}
-        >
-          <Sparkle
-            size={Math.random() > 0.7 ? 14 : 8}
-          />
-        </motion.div>
-      ))}
-
-      {/* ═════════════════════════════════════
-          LEFT COMPASS
-      ═════════════════════════════════════ */}
+      {/* =====================================================
+          DESKTOP COMPASS LEFT
+      ====================================================== */}
 
       <motion.div
         className="
           pointer-events-none
           absolute
-          left-4
+          left-[2%]
           top-1/2
           hidden
           -translate-y-1/2
           lg:block
         "
         animate={{
-          rotate: 360,
+          rotate: [0, 360],
         }}
         transition={{
           duration: 100,
@@ -209,27 +159,27 @@ const TreasureHuntBanner = () => {
         }}
       >
         <CompassCorner
-          size={150}
-          opacity={0.16}
+          size={145}
+          opacity={0.1}
         />
       </motion.div>
 
-      {/* ═════════════════════════════════════
-          RIGHT COMPASS
-      ═════════════════════════════════════ */}
+      {/* =====================================================
+          DESKTOP COMPASS RIGHT
+      ====================================================== */}
 
       <motion.div
         className="
           pointer-events-none
           absolute
-          right-4
+          right-[2%]
           top-1/2
           hidden
           -translate-y-1/2
           lg:block
         "
         animate={{
-          rotate: -360,
+          rotate: [360, 0],
         }}
         transition={{
           duration: 100,
@@ -238,48 +188,14 @@ const TreasureHuntBanner = () => {
         }}
       >
         <CompassCorner
-          size={120}
-          opacity={0.12}
+          size={125}
+          opacity={0.08}
         />
       </motion.div>
 
-      {/* ═════════════════════════════════════
-          TOP SECTION SEPARATOR
-          Kept above scroll
-      ═════════════════════════════════════ */}
-
-      <motion.div
-        initial={{
-          opacity: 0,
-          scaleX: 0,
-        }}
-        whileInView={{
-          opacity: 1,
-          scaleX: 1,
-        }}
-        viewport={{
-          once: true,
-        }}
-        transition={{
-          duration: 0.7,
-          ease: "easeOut",
-        }}
-        className="
-          absolute
-          top-8
-          left-1/2
-          z-20
-          w-[78%]
-          max-w-[900px]
-          -translate-x-1/2
-        "
-      >
-        <RopeDivider />
-      </motion.div>
-
-      {/* ═════════════════════════════════════
+      {/* =====================================================
           MAIN SCROLL
-      ═════════════════════════════════════ */}
+      ====================================================== */}
 
       <div
         className="
@@ -287,27 +203,25 @@ const TreasureHuntBanner = () => {
           z-10
           mx-auto
           w-full
-          max-w-[900px]
-          px-3
-          sm:px-6
+          max-w-[920px]
+          px-0
+          sm:px-4
+          lg:px-6
         "
       >
-
-        {/* Scroll wrapper */}
 
         <motion.div
           initial={{
             opacity: 0,
-            y: 30,
-            scale: 0.97,
+            y: 25,
           }}
           whileInView={{
             opacity: 1,
             y: 0,
-            scale: 1,
           }}
           viewport={{
             once: true,
+            amount: 0.2,
           }}
           transition={{
             duration: 0.8,
@@ -316,102 +230,72 @@ const TreasureHuntBanner = () => {
           className="relative mx-auto w-full"
         >
 
-          {/* ═════════════════════════════════
-              ACTUAL SCROLL IMAGE
-          ═════════════════════════════════ */}
+          {/* =================================================
+              SCROLL IMAGE
+          ================================================= */}
 
           <img
             src="/scroll.png"
             alt="Treasure map scroll"
             className="
-              pointer-events-none
-              relative
-              z-0
               block
               h-auto
               w-full
               select-none
+              object-contain
             "
           />
 
-          {/* ═════════════════════════════════
-              TEXT CONTENT INSIDE SCROLL
-          ═════════════════════════════════ */}
+          {/* =================================================
+              CONTENT
+          ================================================= */}
 
           <div
             className="
               absolute
-              left-[14%]
-              right-[14%]
-              top-[22%]
-              bottom-[24%]
               z-10
               flex
               flex-col
               items-center
-              justify-start
               text-center
+
+              /* =========================
+                 MOBILE
+              ========================= */
+
+              left-[7%]
+              right-[7%]
+              top-[27%]
+              bottom-[20%]
+
+              /* =========================
+                 TABLET
+              ========================= */
+
+              sm:left-[12%]
+              sm:right-[12%]
+              sm:top-[27%]
+              sm:bottom-[22%]
+
+              /* =========================
+                 DESKTOP
+              ========================= */
+
+              lg:left-[14%]
+              lg:right-[14%]
+              lg:top-[25%]
+              lg:bottom-[21%]
             "
           >
 
-            {/* ═════════════════════════════
-                MAP ICON
-            ═════════════════════════════ */}
+            {/* =================================================
+                LABEL
+            ================================================= */}
 
             <motion.div
               initial={{
                 opacity: 0,
-                scale: 0.8,
-              }}
-              whileInView={{
-                opacity: 1,
-                scale: 1,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                delay: 0.15,
-                duration: 0.6,
-              }}
-              className="
-                mb-2
-                flex
-                h-10
-                w-10
-                flex-shrink-0
-                items-center
-                justify-center
-                rounded-full
-                sm:mb-4
-                sm:h-14
-                sm:w-14
-              "
-              style={{
-                border:
-                  "1px solid rgba(90,55,15,0.35)",
-                background:
-                  "rgba(70,40,8,0.07)",
-                boxShadow:
-                  "0 0 20px rgba(80,45,5,0.08)",
-              }}
-            >
-              <PirateImage
-                src="/map_scroll.png"
-                alt=""
-                size={28}
-                opacity={0.82}
-              />
-            </motion.div>
-
-            {/* ═════════════════════════════
-                SMALL HEADING
-            ═════════════════════════════ */}
-
-            <motion.span
-              initial={{
-                opacity: 0,
-                y: 10,
+                y: 8,
               }}
               whileInView={{
                 opacity: 1,
@@ -421,37 +305,40 @@ const TreasureHuntBanner = () => {
                 once: true,
               }}
               transition={{
-                delay: 0.2,
-                duration: 0.55,
+                delay: 0.1,
+                duration: 0.5,
               }}
               className="
-                block
-                text-[8px]
                 uppercase
-                tracking-[0.2em]
-                sm:text-xs
-                sm:tracking-[0.3em]
+                text-[7px]
+                tracking-[0.12em]
+
+                min-[380px]:text-[8px]
+                min-[380px]:tracking-[0.15em]
+
+                sm:text-[10px]
+                sm:tracking-[0.22em]
+
+                lg:text-[11px]
+                lg:tracking-[0.25em]
               "
               style={{
-                fontFamily:
-                  "'Cinzel', serif",
-                color:
-                  "rgba(45,22,4,0.9)",
-                textShadow:
-                  "0 1px 0 rgba(255,230,180,0.35)",
+                fontFamily: "'Cinzel', serif",
+                color: "#70471f",
+                fontWeight: 600,
               }}
             >
               The Afternoon Unifier
-            </motion.span>
+            </motion.div>
 
-            {/* ═════════════════════════════
-                MAIN TITLE
-            ═════════════════════════════ */}
+            {/* =================================================
+                TITLE
+            ================================================= */}
 
             <motion.h2
               initial={{
                 opacity: 0,
-                y: 18,
+                y: 12,
               }}
               whileInView={{
                 opacity: 1,
@@ -461,20 +348,37 @@ const TreasureHuntBanner = () => {
                 once: true,
               }}
               transition={{
-                delay: 0.25,
-                duration: 0.7,
+                delay: 0.18,
+                duration: 0.65,
               }}
-              className="mt-2 sm:mt-3"
+              className="
+                mt-2
+                w-full
+                text-center
+
+                /* MOBILE */
+                text-[1.38rem]
+                leading-[1.08]
+
+                min-[380px]:text-[1.48rem]
+
+                /* TABLET */
+                sm:mt-3
+                sm:text-[2.2rem]
+
+                md:text-[2.8rem]
+
+                /* DESKTOP */
+                lg:text-[3.6rem]
+                xl:text-[4rem]
+              "
               style={{
-                fontFamily:
-                  "'Cinzel Decorative', serif",
-                fontSize:
-                  "clamp(1.35rem, 6vw, 3.5rem)",
-                lineHeight: 1.08,
+                fontFamily: "'Cinzel Decorative', serif",
                 fontWeight: 500,
-                color: "#1c0d03",
+                color: "#3d210d",
+                letterSpacing: "0.005em",
                 textShadow:
-                  "0 1px 0 rgba(255,235,190,0.45), 0 1px 2px rgba(0,0,0,0.25)",
+                  "0 1px 0 rgba(255,235,190,0.45)",
               }}
             >
               The Mega
@@ -482,9 +386,9 @@ const TreasureHuntBanner = () => {
               Treasure Hunt
             </motion.h2>
 
-            {/* ═════════════════════════════
-                DIVIDER INSIDE SCROLL
-            ═════════════════════════════ */}
+            {/* =================================================
+                DIVIDER
+            ================================================= */}
 
             <motion.div
               initial={{
@@ -499,28 +403,31 @@ const TreasureHuntBanner = () => {
                 once: true,
               }}
               transition={{
-                delay: 0.32,
-                duration: 0.6,
+                delay: 0.28,
+                duration: 0.55,
               }}
               className="
                 mt-3
-                w-full
-                max-w-[300px]
-                sm:mt-6
-                sm:max-w-[360px]
+                w-[58%]
+
+                sm:mt-4
+                sm:w-[58%]
+
+                lg:mt-5
+                lg:w-[55%]
               "
             >
               <RopeDivider />
             </motion.div>
 
-            {/* ═════════════════════════════
+            {/* =================================================
                 DESCRIPTION
-            ═════════════════════════════ */}
+            ================================================= */}
 
             <motion.p
               initial={{
                 opacity: 0,
-                y: 14,
+                y: 12,
               }}
               whileInView={{
                 opacity: 1,
@@ -530,43 +437,78 @@ const TreasureHuntBanner = () => {
                 once: true,
               }}
               transition={{
-                delay: 0.38,
-                duration: 0.7,
+                delay: 0.35,
+                duration: 0.65,
               }}
               className="
-                mt-3
-                max-w-[680px]
-                text-[0.78rem]
-                leading-[1.55]
-                sm:mt-6
-                sm:text-[1.1rem]
-                md:text-[1.22rem]
+                mt-4
+                w-full
+                max-w-[95%]
+
+                /* MOBILE */
+                text-[0.68rem]
+                leading-[1.5]
+
+                min-[380px]:text-[0.71rem]
+
+                /* TABLET */
+                sm:mt-5
+                sm:max-w-[90%]
+                sm:text-[1.02rem]
+                sm:leading-[1.55]
+
+                md:max-w-[88%]
+                md:text-[1.2rem]
+                md:leading-[1.6]
+
+                /* DESKTOP */
+                lg:mt-8
+                lg:max-w-[88%]
+                lg:text-[1.4rem]
+                lg:leading-[1.65]
+
+                xl:text-[1.5rem]
               "
               style={{
-                fontFamily:
-                  "'Cormorant Garamond', serif",
+                fontFamily: "'Cormorant Garamond', serif",
                 fontWeight: 600,
-                color: "#2b1607",
+                color: "#4b2a12",
                 textShadow:
-                  "0 1px 0 rgba(255,225,175,0.4)",
+                  "0 1px 0 rgba(255,235,190,0.5)",
               }}
             >
-              When the Battlegrounds fall silent,
-              every crew from Tech Shark Tank
-              (Agora), Tiny ML Workshop (Aether),
-              and Bridge Building (Pillars of Olympus)
-              converges on one final chase — decoding
-              clues scattered across the entire campus.
+
+              {/* MOBILE */}
+              <span className="block sm:hidden">
+                When the Battlegrounds fall silent, every crew from
+                <br />
+                Tech Shark Tank (Agora), Tiny ML Workshop (Aether),
+                <br />
+                and Bridge Building (Pillars of Olympus) converges
+                <br />
+                on one final chase — decoding clues scattered
+                <br />
+                across the entire campus.
+              </span>
+
+              {/* DESKTOP */}
+              <span className="hidden sm:block">
+                When the Battlegrounds fall silent, every crew from Tech Shark
+                Tank (Agora), Tiny ML Workshop (Aether), and Bridge Building
+                (Pillars of Olympus) converges on one final chase — decoding
+                clues scattered across the entire campus.
+              </span>
+
             </motion.p>
 
-            {/* ═════════════════════════════
-                CLOSING TEXT
-            ═════════════════════════════ */}
+            {/* =================================================
+                FINAL MESSAGE
+            ================================================= */}
 
-            <motion.p
+            <motion.div
               initial={{
                 opacity: 0,
-                y: 14,
+                y: 10,
               }}
               whileInView={{
                 opacity: 1,
@@ -576,84 +518,67 @@ const TreasureHuntBanner = () => {
                 once: true,
               }}
               transition={{
-                delay: 0.46,
-                duration: 0.7,
+                delay: 0.43,
+                duration: 0.65,
               }}
               className="
-                mt-3
-                text-[0.7rem]
+                mt-5
+                w-full
+
+                /* MOBILE */
+                text-[0.66rem]
                 leading-[1.5]
-                tracking-wide
+
+                min-[380px]:text-[0.70rem]
+
+                /* TABLET */
                 sm:mt-6
-                sm:text-[0.95rem]
-                md:text-[1.05rem]
+                sm:text-[0.88rem]
+
+                md:text-[1rem]
+
+                /* DESKTOP */
+                lg:mt-8
+                lg:text-[1.15rem]
+
+                xl:text-[1.25rem]
               "
               style={{
-                fontFamily:
-                  "'Cinzel', serif",
+                fontFamily: "'Cinzel', serif",
                 fontWeight: 600,
-                color: "#251204",
+                color: "#49270f",
+                letterSpacing: "0.008em",
                 textShadow:
-                  "0 1px 0 rgba(255,225,170,0.35)",
+                  "0 1px 0 rgba(255,235,190,0.35)",
               }}
             >
-              Form your crew of 4.
-              <br />
-              Decode the tech clues.
-              <br />
 
-              <span
+              <div>
+                FORM YOUR CREW OF 4.
+              </div>
+
+              <div>
+                DECODE THE TECH CLUES.
+              </div>
+
+              <div
+                className="mt-1"
                 style={{
                   fontFamily:
                     "'Cinzel Decorative', serif",
+                  color: "#79501f",
                   fontWeight: 600,
-                  color: "#63390d",
-                  textShadow:
-                    "0 1px 0 rgba(255,225,160,0.45)",
+                  letterSpacing: "0",
                 }}
               >
-                Claim the Golden Fleece.
-              </span>
-            </motion.p>
+                CLAIM THE GOLDEN FLEECE.
+              </div>
+
+            </motion.div>
 
           </div>
         </motion.div>
       </div>
-
-      {/* ═════════════════════════════════════
-          BOTTOM SECTION SEPARATOR
-          Kept visible above scroll
-      ═════════════════════════════════════ */}
-
-      <motion.div
-        initial={{
-          opacity: 0,
-          scaleX: 0,
-        }}
-        whileInView={{
-          opacity: 1,
-          scaleX: 1,
-        }}
-        viewport={{
-          once: true,
-        }}
-        transition={{
-          duration: 0.7,
-          ease: "easeOut",
-        }}
-        className="
-          absolute
-          bottom-8
-          left-1/2
-          z-20
-          w-[78%]
-          max-w-[900px]
-          -translate-x-1/2
-        "
-      >
-        <RopeDivider />
-      </motion.div>
-
     </section>
   );
 };
