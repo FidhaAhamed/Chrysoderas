@@ -30,6 +30,8 @@ const PirateImage = ({
 
 const RopeDivider = () => (
   <div className="flex w-full items-center gap-3">
+
+    {/* Left line */}
     <div
       className="h-px flex-1"
       style={{
@@ -38,6 +40,7 @@ const RopeDivider = () => (
       }}
     />
 
+    {/* Anchor */}
     <motion.div
       className="flex-shrink-0"
       animate={{
@@ -57,6 +60,7 @@ const RopeDivider = () => (
       />
     </motion.div>
 
+    {/* Right line */}
     <div
       className="h-px flex-1"
       style={{
@@ -64,6 +68,76 @@ const RopeDivider = () => (
           "linear-gradient(90deg, rgba(91,55,18,0.72), transparent)",
       }}
     />
+
+  </div>
+);
+
+/* =========================================================
+   SECTION SEPARATOR
+   Same visual language as Battlegrounds
+========================================================= */
+
+const SectionSeparator = () => (
+  <div
+    className="
+      pointer-events-none
+      absolute
+      bottom-0
+      left-1/2
+      z-30
+      w-[88%]
+      -translate-x-1/2
+      sm:w-[82%]
+      lg:w-[75%]
+    "
+  >
+    <div className="flex w-full items-center gap-4">
+
+      {/* Left gold line */}
+      <div
+        className="h-px flex-1"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, rgba(200,134,10,0.75))",
+        }}
+      />
+
+      {/* Center anchor */}
+      <motion.div
+        className="flex-shrink-0"
+        animate={{
+          rotate: [0, -4, 4, 0],
+          y: [0, -2, 0],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        <img
+          src="/anchor2.png"
+          alt=""
+          aria-hidden="true"
+          className="h-7 w-7 object-contain"
+          style={{
+            opacity: 0.78,
+            filter:
+              "drop-shadow(0 0 6px rgba(200,134,10,0.25))",
+          }}
+        />
+      </motion.div>
+
+      {/* Right gold line */}
+      <div
+        className="h-px flex-1"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(200,134,10,0.75), transparent)",
+        }}
+      />
+
+    </div>
   </div>
 );
 
@@ -259,27 +333,15 @@ const TreasureHuntBanner = () => {
               items-center
               text-center
 
-              /* =========================
-                 MOBILE
-              ========================= */
-
               left-[7%]
               right-[7%]
               top-[27%]
               bottom-[20%]
 
-              /* =========================
-                 TABLET
-              ========================= */
-
               sm:left-[12%]
               sm:right-[12%]
               sm:top-[27%]
               sm:bottom-[22%]
-
-              /* =========================
-                 DESKTOP
-              ========================= */
 
               lg:left-[14%]
               lg:right-[14%]
@@ -356,19 +418,16 @@ const TreasureHuntBanner = () => {
                 w-full
                 text-center
 
-                /* MOBILE */
                 text-[1.38rem]
                 leading-[1.08]
 
                 min-[380px]:text-[1.48rem]
 
-                /* TABLET */
                 sm:mt-3
                 sm:text-[2.2rem]
 
                 md:text-[2.8rem]
 
-                /* DESKTOP */
                 lg:text-[3.6rem]
                 xl:text-[4rem]
               "
@@ -387,7 +446,7 @@ const TreasureHuntBanner = () => {
             </motion.h2>
 
             {/* =================================================
-                DIVIDER
+                INTERNAL SCROLL DIVIDER
             ================================================= */}
 
             <motion.div
@@ -445,13 +504,11 @@ const TreasureHuntBanner = () => {
                 w-full
                 max-w-[95%]
 
-                /* MOBILE */
                 text-[0.68rem]
                 leading-[1.5]
 
                 min-[380px]:text-[0.71rem]
 
-                /* TABLET */
                 sm:mt-5
                 sm:max-w-[90%]
                 sm:text-[1.02rem]
@@ -461,7 +518,6 @@ const TreasureHuntBanner = () => {
                 md:text-[1.2rem]
                 md:leading-[1.6]
 
-                /* DESKTOP */
                 lg:mt-8
                 lg:max-w-[88%]
                 lg:text-[1.4rem]
@@ -525,19 +581,16 @@ const TreasureHuntBanner = () => {
                 mt-5
                 w-full
 
-                /* MOBILE */
                 text-[0.66rem]
                 leading-[1.5]
 
                 min-[380px]:text-[0.70rem]
 
-                /* TABLET */
                 sm:mt-6
                 sm:text-[0.88rem]
 
                 md:text-[1rem]
 
-                /* DESKTOP */
                 lg:mt-8
                 lg:text-[1.15rem]
 
@@ -577,8 +630,18 @@ const TreasureHuntBanner = () => {
             </motion.div>
 
           </div>
+
         </motion.div>
+
       </div>
+
+      {/* =====================================================
+          SECTION SEPARATOR
+          Battlegrounds-style divider
+      ====================================================== */}
+
+      <SectionSeparator />
+
     </section>
   );
 };
