@@ -70,7 +70,7 @@ const Navbar = () => {
             <img
               src="/Iste%20logo.png"
               alt="ISTE Logo"
-              className="h-[4.2rem] sm:h-[4.2rem] w-auto object-contain"
+              className="h-[3.5rem] w-auto object-contain"
             />
           </a>
 
