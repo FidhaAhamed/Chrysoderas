@@ -14,7 +14,7 @@ export const battlegrounds = [
       "Follow along with live model training and optimization demonstrations.",
       "Deploy a working model to a microcontroller by the end of the session.",
     ],
-    coordinator: { name: "Coordinator Name (TBA)", phone: "+91 00000 00000" },
+    coordinator: { name: "Sreehari Jayan", phone: "+91 97462 36296" },
   },
   {
     id: "shark-tank",
@@ -27,11 +27,10 @@ export const battlegrounds = [
     tag: "Pitch & Prototype",
     rules: [
       "Each team gets a fixed pitch window followed by judge Q&A.",
-      "Ideas must include a working prototype, mockup, or demo.",
       "Judging covers innovation, feasibility, and presentation.",
       "Cross-department teams are welcome to pitch together.",
     ],
-    coordinator: { name: "Coordinator Name (TBA)", phone: "+91 00000 00000" },
+    coordinator: { name: "Paul", phone: "+91 80863 65281" },
   },
   {
     id: "bridge-building",
@@ -48,6 +47,6 @@ export const battlegrounds = [
       "Structures are scored on maximum load borne relative to weight used.",
       "Any structural failure during testing ends that team's attempt.",
     ],
-    coordinator: { name: "Coordinator Name (TBA)", phone: "+91 00000 00000" },
+    coordinator: { name: "Saviyo", phone: "+91 62384 93690" },
   },
 ];

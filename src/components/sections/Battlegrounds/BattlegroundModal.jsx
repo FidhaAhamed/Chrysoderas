@@ -346,33 +346,7 @@ const BattlegroundModal = ({
           {battleground.description}
         </p>
 
-        {/* =================================================
-            VENUE
-        ================================================= */}
 
-        <div
-          className="
-            mt-6
-            flex
-            items-center
-            gap-3
-            text-sm
-          "
-          style={{
-            color:
-              "rgba(210,222,235,0.85)",
-          }}
-        >
-          <PirateIcon
-            src="/map_scroll.png"
-            size={24}
-            opacity={0.75}
-          />
-
-          <span>
-            {battleground.venue}
-          </span>
-        </div>
 
         {/* =================================================
             RULES
