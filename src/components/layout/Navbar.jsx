@@ -165,7 +165,7 @@ const Navbar = () => {
                   />
                 }
               >
-                Register
+                Registration will open soon
               </ParchmentButton>
             </div>
           </div>

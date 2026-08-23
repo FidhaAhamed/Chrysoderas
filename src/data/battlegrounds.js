@@ -20,7 +20,7 @@ export const battlegrounds = [
     id: "shark-tank",
     icon: "shark",
     emoji: "🦈",
-    title: "Tech Shark Tank",
+    title: "Ideathon",
     subtitle: "Agora",
     description:
       "Step into the tank. Pitch your most innovative product or business ideas to our panel of judges and secure your investment.",
