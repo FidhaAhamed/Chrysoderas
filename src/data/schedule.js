@@ -30,7 +30,7 @@ export const schedule = {
       id: "d2-battlegrounds",
       time: "09:00 AM",
       title: "The Battlegrounds",
-      description: "Tiny ML Workshop (Aether), Tech Shark Tank (Agora) & Bridge Building (Pillars of Olympus) run in parallel.",
+      description: "Tiny ML Workshop (Aether), Ideathon (Agora) & Bridge Building (Pillars of Olympus) run in parallel.",
     },
     {
       id: "d2-treasure-hunt",
