@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import GlowCard from "../common/GlowCard";
+import { ParchmentButton } from "../common/ParchmentButton";
+import TrackModal from "./TrackModal";
 
 /* =========================================================
    PIRATE ASSETS
@@ -34,26 +36,36 @@ const DOMAINS = [
     label: "AI for Health & Well-Being",
     desc: "Intelligent solutions for a healthier world",
     icon: "/light.png",
+    fullDesc:
+      "Explore AI-powered solutions that improve healthcare, mental well-being, accessibility, and quality of life. Think about smarter diagnosis, health monitoring, personalized care, assistive technologies, or wellness solutions.",
   },
   {
     label: "Future Learning & Career Empowerment",
     desc: "Chart your course to the next frontier",
     icon: "/star.png",
+    fullDesc:
+      "Reimagine how people learn, develop skills, and prepare for their careers. Build solutions around personalized learning, skill development, career guidance, employability, or connecting learners with opportunities.",
   },
   {
     label: "GreenTech & Sustainable Innovation",
     desc: "Eco-friendly tech for a thriving world",
     icon: "/wheel.png",
+    fullDesc:
+      "Create technology-driven solutions that address environmental and sustainability challenges. Ideas can focus on waste management, energy efficiency, climate action, sustainable transportation, resource conservation, or eco-friendly living.",
   },
   {
     label: "Cyber Defense & Digital Trust",
     desc: "Secure your fleet against digital threats",
     icon: "/anchor3.png",
+    fullDesc:
+      "Develop solutions that make our digital world safer and more trustworthy. Explore problems involving cybersecurity, privacy, secure communication, fraud detection, identity protection, or responsible use of digital systems.",
   },
   {
     label: "Smart Living & Connected Communities",
     desc: "Bridging the gap to a unified society",
     icon: "/map_scroll.png",
+    fullDesc:
+      "Use technology to make everyday life and communities smarter, more connected, and inclusive. Consider solutions for smart cities, public services, transportation, community engagement, accessibility, safety, or efficient resource management.",
   },
 ];
 
@@ -198,6 +210,8 @@ const useCountUp = (
 
 const HackathonHub = () => {
   const statRef = useRef(null);
+
+  const [selectedTrack, setSelectedTrack] = useState(null);
 
   const inView = useInView(statRef, {
     once: true,
@@ -517,9 +531,12 @@ const HackathonHub = () => {
             <GlowCard
               key={domain.label}
               index={i}
+              type="button"
+              onClick={() => setSelectedTrack(domain)}
               className={`
                 group
                 p-6
+                text-left
                 hover-target
                 ${
                   i === DOMAINS.length - 1 &&
@@ -616,7 +633,52 @@ const HackathonHub = () => {
           ))}
         </div>
 
+        {/* =================================================
+            REGISTER BUTTON
+        ================================================= */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.7,
+            delay: 0.1,
+          }}
+          className="mt-12 flex justify-center"
+        >
+          <ParchmentButton
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdekfFz0f-6lnBmChUWSHYwy3oz2WPwi7VN-1BnsYemftiyrQ/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Register
+          </ParchmentButton>
+        </motion.div>
+
       </div>
+
+      {/* =================================================
+          TRACK MODAL
+      ================================================= */}
+
+      <AnimatePresence>
+        {selectedTrack && (
+          <TrackModal
+            track={selectedTrack}
+            onClose={() => setSelectedTrack(null)}
+          />
+        )}
+      </AnimatePresence>
+
     </section>
   );
 };

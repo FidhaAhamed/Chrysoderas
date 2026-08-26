@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { ParchmentButton } from "../../common/ParchmentButton";
 
 /* =========================================================
    PIRATE PUBLIC ASSETS
@@ -483,6 +484,22 @@ const BattlegroundModal = ({
             {battleground.coordinator.phone}
           </span>
 
+        </div>
+
+        {/* =================================================
+            REGISTER BUTTON
+        ================================================= */}
+
+        <div className="mt-7 flex justify-center">
+          <ParchmentButton
+            href={battleground.regLink || "#register"}
+            size="sm"
+            onClick={onClose}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Registration will open soon
+          </ParchmentButton>
         </div>
 
       </motion.div>

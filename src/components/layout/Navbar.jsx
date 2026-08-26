@@ -155,7 +155,7 @@ const Navbar = () => {
 
             <div className="ml-8">
               <ParchmentButton
-                href="#register"
+                href="#battlegrounds"
                 size="sm"
                 icon={
                   <img
@@ -165,7 +165,7 @@ const Navbar = () => {
                   />
                 }
               >
-                Registration will open soon
+                Register
               </ParchmentButton>
             </div>
           </div>

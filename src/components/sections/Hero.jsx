@@ -466,7 +466,7 @@ const Hero = () => {
           className="mt-10"
         >
           <ParchmentButton
-            href="#register"
+            href="#hackathon"
             icon={<CompassIcon size={24} />}
           >
             Claim Your Fleece

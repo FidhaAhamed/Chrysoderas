@@ -1,5 +1,6 @@
 import React from "react";
 import GlowCard from "../../common/GlowCard";
+import { ParchmentButton } from "../../common/ParchmentButton";
 import { motion } from "framer-motion";
 
 /* =========================================================
@@ -132,22 +133,6 @@ const BattlegroundCard = ({
           w-3
           border-b
           border-l
-        "
-        style={{
-          borderColor:
-            "rgba(200,134,10,0.45)",
-        }}
-      />
-
-      <span
-        className="
-          absolute
-          bottom-2
-          right-2
-          h-3
-          w-3
-          border-b
-          border-r
         "
         style={{
           borderColor:
@@ -322,6 +307,25 @@ const BattlegroundCard = ({
           {battleground.tag}
         </span>
 
+      </div>
+
+      {/* =================================================
+          REGISTER BUTTON
+      ================================================= */}
+
+      <div
+        className="mt-6 flex justify-center"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <ParchmentButton
+          href={battleground.regLink || "#register"}
+          size="sm"
+          className="w-full"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Registration will open soon
+        </ParchmentButton>
       </div>
 
     </GlowCard>

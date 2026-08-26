@@ -8,6 +8,8 @@ export const battlegrounds = [
     description:
       "Dive into the world of Tiny Machine Learning. Learn to build, train, and deploy intelligent AI models directly onto resource-constrained microcontrollers.",
     tag: "Hands-on Workshop",
+    regLink: "#register",
+    //regLink: "https://docs.google.com/forms/d/e/1FAIpQLSfCNM7H9lp-g5bSPlYkabuKaIcBJFH6LX99FoHSXG4ITD_4xA/viewform",
     rules: [
       "No prior hardware ML experience required.",
       "Bring your own laptop with the required toolchains installed.",
@@ -25,6 +27,8 @@ export const battlegrounds = [
     description:
       "Step into the tank. Pitch your most innovative product or business ideas to our panel of judges and secure your investment.",
     tag: "Pitch & Prototype",
+    regLink: "#register",
+    //regLink: "https://docs.google.com/forms/d/e/1FAIpQLSdrUAcgz5Hwu6KUOoaBndTy4DguKjNh3JB6htjPXp8WalC2ZA/viewform?usp=dialog",
     rules: [
       "Each team gets a fixed pitch window followed by judge Q&A.",
       "Judging covers innovation, feasibility, and presentation.",
@@ -41,6 +45,8 @@ export const battlegrounds = [
     description:
       "Test your structural engineering limits. Design, construct, and test the load-bearing capacity of your custom bridge.",
     tag: "Design & Destroy",
+    regLink: "#register",
+    //regLink: "https://docs.google.com/forms/d/e/1FAIpQLScs3p3JitCGyaDViem1IKkw1gMK-nukqvmOiHe3IeVLROl2vg/viewform",
     rules: [
       "Bridges must be built using only the materials provided on-site.",
       "Each team has a fixed build time before live load-testing begins.",
