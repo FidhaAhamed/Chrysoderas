@@ -498,7 +498,7 @@ const BattlegroundModal = ({
             target="_blank"
             rel="noopener noreferrer"
           >
-            Registration will open soon
+            Register
           </ParchmentButton>
         </div>
 
