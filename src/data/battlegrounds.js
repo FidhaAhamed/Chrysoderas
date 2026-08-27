@@ -45,8 +45,7 @@ export const battlegrounds = [
     description:
       "Test your structural engineering limits. Design, construct, and test the load-bearing capacity of your custom bridge.",
     tag: "Design & Destroy",
-    regLink: "#register",
-    //regLink: "https://docs.google.com/forms/d/e/1FAIpQLScs3p3JitCGyaDViem1IKkw1gMK-nukqvmOiHe3IeVLROl2vg/viewform",
+    regLink: "https://docs.google.com/forms/d/e/1FAIpQLScs3p3JitCGyaDViem1IKkw1gMK-nukqvmOiHe3IeVLROl2vg/viewform",
     rules: [
       "Bridges must be built using only the materials provided on-site.",
       "Each team has a fixed build time before live load-testing begins.",
