@@ -8,8 +8,7 @@ export const battlegrounds = [
     description:
       "Dive into the world of Tiny Machine Learning. Learn to build, train, and deploy intelligent AI models directly onto resource-constrained microcontrollers.",
     tag: "Hands-on Workshop",
-    regLink: "#register",
-    //regLink: "https://docs.google.com/forms/d/e/1FAIpQLSfCNM7H9lp-g5bSPlYkabuKaIcBJFH6LX99FoHSXG4ITD_4xA/viewform",
+    regLink: "https://docs.google.com/forms/d/e/1FAIpQLSfCNM7H9lp-g5bSPlYkabuKaIcBJFH6LX99FoHSXG4ITD_4xA/viewform",
     rules: [
       "No prior hardware ML experience required.",
       "Bring your own laptop with the required toolchains installed.",
@@ -27,8 +26,7 @@ export const battlegrounds = [
     description:
       "Teams pitch their ideas, challenge other teams, defend their concepts, and respond to unexpected real-world scenarios. The event focuses on clear thinking, adaptability, and handling pressure.",
     tag: "Pitch & Prototype",
-    regLink: "#register",
-    //regLink: "https://docs.google.com/forms/d/e/1FAIpQLSdrUAcgz5Hwu6KUOoaBndTy4DguKjNh3JB6htjPXp8WalC2ZA/viewform?usp=dialog",
+    regLink: "https://docs.google.com/forms/d/e/1FAIpQLSdrUAcgz5Hwu6KUOoaBndTy4DguKjNh3JB6htjPXp8WalC2ZA/viewform?usp=dialog",
     rules: [
       "Teams must come prepared with an idea based on the given theme.",
       "Each team will pitch their idea within the allotted time.",
