@@ -2,6 +2,13 @@ import { motion } from "framer-motion";
 import { ParchmentButton } from "../../common/ParchmentButton";
 
 /* =========================================================
+   GROUP REGISTRATION LINK
+========================================================= */
+
+const GROUP_REGISTRATION_LINK =
+  "https://docs.google.com/forms/d/e/1FAIpQLSe4FCx-vhuyIhgfnAcK_l4mnkeFNUOFwJF773SWnH-in2gx-w/viewform";
+
+/* =========================================================
    PIRATE PUBLIC ASSETS
 ========================================================= */
 
@@ -57,43 +64,41 @@ const BattlegroundModal = ({
         fixed
         inset-0
         z-[60]
-        flex
-        items-center
-        justify-center
         bg-[#020408]/85
-        px-4
         backdrop-blur-sm
+        overflow-y-auto
       "
     >
+      <div className="flex min-h-full items-center justify-center p-4 py-12 sm:p-6 sm:py-16">
 
-      {/* =================================================
+        {/* =================================================
           MODAL CARD
       ================================================= */}
 
-      <motion.div
-        onClick={(e) =>
-          e.stopPropagation()
-        }
-        initial={{
-          opacity: 0,
-          y: 24,
-          scale: 0.97,
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-          scale: 1,
-        }}
-        exit={{
-          opacity: 0,
-          y: 16,
-          scale: 0.97,
-        }}
-        transition={{
-          duration: 0.3,
-          ease: "easeOut",
-        }}
-        className="
+        <motion.div
+          onClick={(e) =>
+            e.stopPropagation()
+          }
+          initial={{
+            opacity: 0,
+            y: 24,
+            scale: 0.97,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            scale: 1,
+          }}
+          exit={{
+            opacity: 0,
+            y: 16,
+            scale: 0.97,
+          }}
+          transition={{
+            duration: 0.3,
+            ease: "easeOut",
+          }}
+          className="
           relative
           w-full
           max-w-lg
@@ -104,17 +109,17 @@ const BattlegroundModal = ({
           p-8
           shadow-[0_0_60px_rgba(0,0,0,0.6)]
         "
-        style={{
-          borderRadius: "4px",
-        }}
-      >
+          style={{
+            borderRadius: "4px",
+          }}
+        >
 
-        {/* =================================================
+          {/* =================================================
             ANTIQUE CORNERS
         ================================================= */}
 
-        <span
-          className="
+          <span
+            className="
             absolute
             left-2
             top-2
@@ -123,14 +128,14 @@ const BattlegroundModal = ({
             border-l
             border-t
           "
-          style={{
-            borderColor:
-              "rgba(200,134,10,0.5)",
-          }}
-        />
+            style={{
+              borderColor:
+                "rgba(200,134,10,0.5)",
+            }}
+          />
 
-        <span
-          className="
+          <span
+            className="
             absolute
             right-2
             top-2
@@ -139,14 +144,14 @@ const BattlegroundModal = ({
             border-r
             border-t
           "
-          style={{
-            borderColor:
-              "rgba(200,134,10,0.5)",
-          }}
-        />
+            style={{
+              borderColor:
+                "rgba(200,134,10,0.5)",
+            }}
+          />
 
-        <span
-          className="
+          <span
+            className="
             absolute
             bottom-2
             left-2
@@ -155,14 +160,14 @@ const BattlegroundModal = ({
             border-b
             border-l
           "
-          style={{
-            borderColor:
-              "rgba(200,134,10,0.5)",
-          }}
-        />
+            style={{
+              borderColor:
+                "rgba(200,134,10,0.5)",
+            }}
+          />
 
-        <span
-          className="
+          <span
+            className="
             absolute
             bottom-2
             right-2
@@ -171,21 +176,21 @@ const BattlegroundModal = ({
             border-b
             border-r
           "
-          style={{
-            borderColor:
-              "rgba(200,134,10,0.5)",
-          }}
-        />
+            style={{
+              borderColor:
+                "rgba(200,134,10,0.5)",
+            }}
+          />
 
-        {/* =================================================
+          {/* =================================================
             CLOSE BUTTON
         ================================================= */}
 
-        <button
-          type="button"
-          onClick={onClose}
-          aria-label="Close details"
-          className="
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close details"
+            className="
             absolute
             right-5
             top-5
@@ -203,25 +208,25 @@ const BattlegroundModal = ({
             hover:border-[#c8860a]/60
             hover:bg-[#c8860a]/15
           "
-        >
-          <span
-            className="
+          >
+            <span
+              className="
               text-lg
               font-light
               text-[#c8860a]/70
               hover:text-[#e8c96a]
             "
-          >
-            ×
-          </span>
-        </button>
+            >
+              ×
+            </span>
+          </button>
 
-        {/* =================================================
+          {/* =================================================
             BATTLEGROUND ICON
         ================================================= */}
 
-        <motion.div
-          className="
+          <motion.div
+            className="
             flex
             h-14
             w-14
@@ -231,62 +236,62 @@ const BattlegroundModal = ({
             border-[#c8860a]/30
             bg-[#c8860a]/5
           "
-          style={{
-            borderRadius: "3px",
-          }}
-          animate={{
-            y: [0, -2, 0],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
-          <PirateIcon
-            src={iconSrc}
-            size={36}
-          />
-        </motion.div>
+            style={{
+              borderRadius: "3px",
+            }}
+            animate={{
+              y: [0, -2, 0],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <PirateIcon
+              src={iconSrc}
+              size={36}
+            />
+          </motion.div>
 
-        {/* =================================================
+          {/* =================================================
             TITLE
         ================================================= */}
 
-        <h3
-          className="mt-5 text-2xl"
-          style={{
-            fontFamily:
-              "'Cinzel', serif",
-            color: "#e8d5a8",
-          }}
-        >
-          {battleground.title}
-        </h3>
+          <h3
+            className="mt-5 text-2xl"
+            style={{
+              fontFamily:
+                "'Cinzel', serif",
+              color: "#e8d5a8",
+            }}
+          >
+            {battleground.title}
+          </h3>
 
-        {/* =================================================
+          {/* =================================================
             SUBTITLE
         ================================================= */}
 
-        {battleground.subtitle && (
-          <h4
-            className="mt-1 text-xl"
-            style={{
-              fontFamily:
-                "'Cinzel Decorative', serif",
-              color: "#c49c36",
-            }}
-          >
-            {battleground.subtitle}
-          </h4>
-        )}
+          {battleground.subtitle && (
+            <h4
+              className="mt-1 text-xl"
+              style={{
+                fontFamily:
+                  "'Cinzel Decorative', serif",
+                color: "#c49c36",
+              }}
+            >
+              {battleground.subtitle}
+            </h4>
+          )}
 
-        {/* =================================================
+          {/* =================================================
             TAG
         ================================================= */}
 
-        <span
-          className="
+          <span
+            className="
             mt-3
             inline-flex
             items-center
@@ -298,97 +303,90 @@ const BattlegroundModal = ({
             uppercase
             tracking-wider
           "
-          style={{
-            fontFamily:
-              "'Cinzel', serif",
+            style={{
+              fontFamily:
+                "'Cinzel', serif",
 
-            color:
-              "rgba(200,134,10,0.9)",
+              color:
+                "rgba(200,134,10,0.9)",
 
-            borderColor:
-              "rgba(200,134,10,0.3)",
+              borderColor:
+                "rgba(200,134,10,0.3)",
 
-            background:
-              "rgba(200,134,10,0.05)",
+              background:
+                "rgba(200,134,10,0.05)",
 
-            borderRadius: "2px",
-          }}
-        >
-          <PirateIcon
-            src="/star.png"
-            size={10}
-            opacity={0.75}
-          />
+              borderRadius: "2px",
+            }}
+          >
+            <PirateIcon
+              src="/star.png"
+              size={10}
+              opacity={0.75}
+            />
 
-          {battleground.tag}
-        </span>
+            {battleground.tag}
+          </span>
 
-        {/* =================================================
+          {/* =================================================
             DESCRIPTION
         ================================================= */}
 
-        <p
-          className="
+          <p
+            className="
             mt-5
             text-sm
             leading-relaxed
             font-light
+            whitespace-pre-line
           "
-          style={{
-            fontFamily:
-              "'Cormorant Garamond', serif",
+            style={{
+              fontFamily:
+                "'Cormorant Garamond', serif",
 
-            fontSize: "1.05rem",
+              fontSize: "1.05rem",
 
-            color:
-              "rgba(210,222,235,0.78)",
-          }}
-        >
-          {battleground.description}
-        </p>
+              color:
+                "rgba(210,222,235,0.78)",
+            }}
+          >
+            {battleground.description}
+          </p>
 
-
-
-        {/* =================================================
-            RULES
+          {/* =================================================
+            THEMES
         ================================================= */}
 
-        <div className="mt-7">
-
-          <div className="flex items-center gap-3">
-
-            <PirateIcon
-              src="/compass5.png"
-              size={18}
-              opacity={0.7}
-            />
-
-            <h4
-              className="
-                text-xs
-                uppercase
-                tracking-widest
-              "
-              style={{
-                fontFamily:
-                  "'Cinzel', serif",
-
-                color:
-                  "rgba(200,134,10,0.8)",
-              }}
-            >
-              Rules
-            </h4>
-
-          </div>
-
-          <ul className="mt-3 space-y-3">
-
-            {battleground.rules.map(
-              (rule) => (
-                <li
-                  key={rule}
+          {battleground.themes && (
+            <div className="mt-7">
+              <div className="flex items-center gap-3">
+                <PirateIcon
+                  src="/compass5.png"
+                  size={18}
+                  opacity={0.7}
+                />
+                <h4
                   className="
+                  text-xs
+                  uppercase
+                  tracking-widest
+                "
+                  style={{
+                    fontFamily:
+                      "'Cinzel', serif",
+
+                    color:
+                      "rgba(200,134,10,0.8)",
+                  }}
+                >
+                  {battleground.themesTitle || "Themes"}
+                </h4>
+              </div>
+              <ul className="mt-3 space-y-3">
+                {battleground.themes.map((theme) => (
+                  <li
+                    key={theme}
+                    className="
                     flex
                     items-start
                     gap-3
@@ -396,113 +394,265 @@ const BattlegroundModal = ({
                     leading-relaxed
                     font-light
                   "
-                  style={{
-                    fontFamily:
-                      "'Cormorant Garamond', serif",
+                    style={{
+                      fontFamily:
+                        "'Cormorant Garamond', serif",
 
-                    fontSize: "1rem",
+                      fontSize: "1rem",
 
-                    color:
-                      "rgba(168,196,216,0.75)",
-                  }}
-                >
+                      color:
+                        "rgba(168,196,216,0.75)",
+                    }}
+                  >
+                    <PirateIcon
+                      src="/star.png"
+                      size={10}
+                      opacity={0.6}
+                      className="mt-1.5 flex-shrink-0"
+                    />
+                    <span>
+                      {theme}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
-                  <PirateIcon
-                    src="/star.png"
-                    size={10}
-                    opacity={0.6}
-                    className="mt-1.5 flex-shrink-0"
-                  />
 
-                  <span>
-                    {rule}
-                  </span>
 
-                </li>
-              )
-            )}
+          {/* =================================================
+            RULES
+        ================================================= */}
 
-          </ul>
-        </div>
+          <div className="mt-7">
 
-        {/* =================================================
+            <div className="flex items-center gap-3">
+
+              <PirateIcon
+                src="/compass5.png"
+                size={18}
+                opacity={0.7}
+              />
+
+              <h4
+                className="
+                text-xs
+                uppercase
+                tracking-widest
+              "
+                style={{
+                  fontFamily:
+                    "'Cinzel', serif",
+
+                  color:
+                    "rgba(200,134,10,0.8)",
+                }}
+              >
+                Rules
+              </h4>
+
+            </div>
+
+            <ul className="mt-3 space-y-3">
+
+              {battleground.rules.map(
+                (rule) => (
+                  <li
+                    key={rule}
+                    className="
+                    flex
+                    items-start
+                    gap-3
+                    text-sm
+                    leading-relaxed
+                    font-light
+                  "
+                    style={{
+                      fontFamily:
+                        "'Cormorant Garamond', serif",
+
+                      fontSize: "1rem",
+
+                      color:
+                        "rgba(168,196,216,0.75)",
+                    }}
+                  >
+
+                    <PirateIcon
+                      src="/star.png"
+                      size={10}
+                      opacity={0.6}
+                      className="mt-1.5 flex-shrink-0"
+                    />
+
+                    <span>
+                      {rule}
+                    </span>
+
+                  </li>
+                )
+              )}
+
+            </ul>
+          </div>
+
+          {/* =================================================
+            FOOTER TEXT
+        ================================================= */}
+
+          {battleground.footerText && (
+            <p
+              className="
+              mt-7
+              text-center
+              text-sm
+              leading-relaxed
+              font-light
+              whitespace-pre-line
+            "
+              style={{
+                fontFamily:
+                  "'Cinzel', serif",
+
+                fontSize: "1.1rem",
+
+                color:
+                  "rgba(200,134,10,0.9)",
+              }}
+            >
+              {battleground.footerText}
+            </p>
+          )}
+
+          {/* =================================================
             COORDINATOR
         ================================================= */}
 
-        <div
-          className="
-            mt-7
-            flex
-            items-center
-            gap-3
-            border
-            px-4
-            py-3
-          "
-          style={{
-            borderColor:
-              "rgba(200,134,10,0.18)",
+          {(battleground.coordinators || [battleground.coordinator]).map((coord, idx) => (
+            <div
+              key={idx}
+              className={`
+              ${idx === 0 ? "mt-7" : "mt-3"}
+              flex
+              items-center
+              gap-3
+              border
+              px-4
+              py-3
+            `}
+              style={{
+                borderColor:
+                  "rgba(200,134,10,0.18)",
 
-            background:
-              "rgba(255,255,255,0.02)",
+                background:
+                  "rgba(255,255,255,0.02)",
 
-            borderRadius: "3px",
-          }}
-        >
+                borderRadius: "3px",
+              }}
+            >
 
-          <PirateIcon
-            src="/anchor2.png"
-            size={24}
-            opacity={0.7}
-          />
+              <PirateIcon
+                src="/anchor2.png"
+                size={24}
+                opacity={0.7}
+              />
 
-          <span
-            className="text-sm"
-            style={{
-              fontFamily:
-                "'Cormorant Garamond', serif",
+              <span
+                className="text-sm"
+                style={{
+                  fontFamily:
+                    "'Cormorant Garamond', serif",
 
-              color:
-                "rgba(210,222,235,0.85)",
-            }}
-          >
-            {battleground.coordinator.name}
-          </span>
+                  color:
+                    "rgba(210,222,235,0.85)",
+                }}
+              >
+                {coord.name}
+              </span>
 
-          <span
+              <span
+                className="
+                ml-auto
+                text-sm
+              "
+                style={{
+                  fontFamily:
+                    "'Cinzel', serif",
+
+                  color: "#e8c96a",
+                }}
+              >
+                {coord.phone}
+              </span>
+
+            </div>
+          ))}
+
+          {/* =================================================
+              REGISTRATION BUTTONS
+          ================================================= */}
+
+          <div
             className="
-              ml-auto
-              text-sm
+              mt-7
+              flex
+              w-full
+              min-w-0
+              gap-3
             "
-            style={{
-              fontFamily:
-                "'Cinzel', serif",
-
-              color: "#e8c96a",
-            }}
           >
-            {battleground.coordinator.phone}
-          </span>
 
-        </div>
+            {/* =================================================
+                INDIVIDUAL REGISTRATION
+            ================================================= */}
 
-        {/* =================================================
-            REGISTER BUTTON
-        ================================================= */}
+            <ParchmentButton
+              href={battleground.regLink || "#register"}
+              size="sm"
+              className="min-w-0 flex-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={onClose}
+            >
+              <span className="block sm:hidden text-center">
+                INDIVIDUAL
+                <br />
+                REGISTRATION
+              </span>
 
-        <div className="mt-7 flex justify-center">
-          <ParchmentButton
-            href={battleground.regLink || "#register"}
-            size="sm"
-            onClick={onClose}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Register
-          </ParchmentButton>
-        </div>
+              <span className="hidden sm:block text-center">
+                INDIVIDUAL REGISTRATION
+              </span>
+            </ParchmentButton>
 
-      </motion.div>
+            {/* =================================================
+                GROUP REGISTRATION
+            ================================================= */}
+
+            <ParchmentButton
+              href={GROUP_REGISTRATION_LINK}
+              size="sm"
+              className="min-w-0 flex-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={onClose}
+            >
+              <span className="block sm:hidden text-center">
+                GROUP
+                <br />
+                REGISTRATION
+              </span>
+
+              <span className="hidden sm:block text-center">
+                GROUP REGISTRATION
+              </span>
+            </ParchmentButton>
+
+          </div>
+
+        </motion.div>
+      </div>
     </motion.div>
   );
 };
