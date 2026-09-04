@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Hero from "./components/sections/Hero";
+import Tickets from "./components/sections/Tickets";
 import Lore from "./components/sections/Lore";
 import HackathonHub from "./components/sections/HackathonHub";
 import Battlegrounds from "./components/sections/Battlegrounds/Battlegrounds";
@@ -379,6 +380,7 @@ function App() {
         <main>
           <Hero />
           <Lore />
+          <Tickets />
           <HackathonHub />
           <Battlegrounds />
           <TreasureHuntBanner />
