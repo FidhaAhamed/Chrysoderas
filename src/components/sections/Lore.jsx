@@ -138,7 +138,6 @@ const Lore = () => {
       className="
         relative
         w-full
-        overflow-hidden
         py-28
         sm:py-36
       "

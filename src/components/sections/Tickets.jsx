@@ -141,7 +141,12 @@ const Tickets = () => {
     return (
         <section
             id="tickets"
-            className="relative w-full py-24 sm:py-32 overflow-hidden"
+            className="relative w-full py-24 sm:py-32"
+            style={{
+                background:
+                    "radial-gradient(ellipse 70% 50% at 50% 5%, rgba(26,74,107,0.3) 0%, transparent 60%)," +
+                    "radial-gradient(ellipse 55% 40% at 20% 85%, rgba(15,52,96,0.2) 0%, transparent 55%)",
+            }}
         >
             <div className="relative z-20 mx-auto max-w-6xl px-4 sm:px-6">
 

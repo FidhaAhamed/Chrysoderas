@@ -225,7 +225,6 @@ const HackathonHub = () => {
       className="
         relative
         w-full
-        overflow-hidden
         py-28
         sm:py-36
       "
@@ -533,11 +532,10 @@ const HackathonHub = () => {
                 p-6
                 text-left
                 hover-target
-                ${
-                  i === DOMAINS.length - 1 &&
+                ${i === DOMAINS.length - 1 &&
                   DOMAINS.length % 2 !== 0
-                    ? "sm:col-span-2 sm:mx-auto sm:w-1/2"
-                    : ""
+                  ? "sm:col-span-2 sm:mx-auto sm:w-1/2"
+                  : ""
                 }
               `}
               style={{
