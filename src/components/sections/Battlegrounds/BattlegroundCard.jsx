@@ -4,6 +4,13 @@ import { ParchmentButton } from "../../common/ParchmentButton";
 import { motion } from "framer-motion";
 
 /* =========================================================
+   GROUP REGISTRATION LINK
+========================================================= */
+
+const GROUP_REGISTRATION_LINK =
+  "https://docs.google.com/forms/d/e/1FAIpQLSe4FCx-vhuyIhgfnAcK_l4mnkeFNUOFwJF773SWnH-in2gx-w/viewform";
+
+/* =========================================================
    PIRATE PUBLIC ASSET
 ========================================================= */
 
@@ -70,6 +77,8 @@ const BattlegroundCard = ({
         items-start
         text-left
         hover-target
+        min-w-0
+        overflow-hidden
       "
       style={{
         padding: "28px",
@@ -254,11 +263,9 @@ const BattlegroundCard = ({
             "rgba(168,196,216,0.72)",
         }}
       >
-
         <span>
           {battleground.venue}
         </span>
-
       </div>
 
       {/* =================================================
@@ -290,7 +297,6 @@ const BattlegroundCard = ({
           borderRadius: "2px",
         }}
       >
-
         <PirateIcon
           src="/star.png"
           size={10}
@@ -306,26 +312,67 @@ const BattlegroundCard = ({
         >
           {battleground.tag}
         </span>
-
       </div>
 
       {/* =================================================
-          REGISTER BUTTON
+          REGISTRATION BUTTONS
       ================================================= */}
 
       <div
-        className="mt-6 flex justify-center"
+        className="
+          mt-6
+          flex
+          w-full
+          min-w-0
+          gap-2
+        "
         onClick={(e) => e.stopPropagation()}
       >
+
+        {/* =================================================
+            INDIVIDUAL REGISTRATION
+        ================================================= */}
+
         <ParchmentButton
           href={battleground.regLink || "#register"}
           size="sm"
-          className="w-full"
+          className="min-w-0 flex-1"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Register
+          <span className="block sm:hidden text-center">
+            INDIVIDUAL
+            <br />
+            REGISTRATION
+          </span>
+
+          <span className="hidden sm:block text-center">
+            INDIVIDUAL REGISTRATION
+          </span>
         </ParchmentButton>
+
+        {/* =================================================
+            GROUP REGISTRATION
+        ================================================= */}
+
+        <ParchmentButton
+          href={GROUP_REGISTRATION_LINK}
+          size="sm"
+          className="min-w-0 flex-1"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className="block sm:hidden text-center">
+            GROUP
+            <br />
+            REGISTRATION
+          </span>
+
+          <span className="hidden sm:block text-center">
+            GROUP REGISTRATION
+          </span>
+        </ParchmentButton>
+
       </div>
 
     </GlowCard>

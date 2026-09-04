@@ -4,6 +4,9 @@ import GlowCard from "../common/GlowCard";
 import { ParchmentButton } from "../common/ParchmentButton";
 import TrackModal from "./TrackModal";
 
+const GROUP_REGISTRATION_LINK =
+  "https://docs.google.com/forms/d/e/1FAIpQLSe4FCx-vhuyIhgfnAcK_l4mnkeFNUOFwJF773SWnH-in2gx-w/viewform";
+
 /* =========================================================
    PIRATE ASSETS
 ========================================================= */
@@ -75,7 +78,6 @@ const DOMAINS = [
 
 const GoldRule = ({ children }) => (
   <div className="flex w-full items-center justify-center gap-3 select-none">
-
     <div
       className="h-px flex-1 max-w-28"
       style={{
@@ -117,7 +119,6 @@ const GoldRule = ({ children }) => (
           "linear-gradient(90deg, rgba(200,134,10,0.75), transparent)",
       }}
     />
-
   </div>
 );
 
@@ -127,7 +128,6 @@ const GoldRule = ({ children }) => (
 
 const RopeDivider = () => (
   <div className="flex w-full items-center gap-4">
-
     <div
       className="h-px flex-1"
       style={{
@@ -161,7 +161,6 @@ const RopeDivider = () => (
           "linear-gradient(90deg, rgba(170,125,55,0.7), transparent)",
       }}
     />
-
   </div>
 );
 
@@ -319,7 +318,6 @@ const HackathonHub = () => {
               gap-1
             "
           >
-
             <span
               className="text-[#c49c36]"
               style={{
@@ -345,7 +343,6 @@ const HackathonHub = () => {
             >
               The Overnight Hackathon
             </span>
-
           </motion.h2>
 
           {/* =================================================
@@ -415,7 +412,6 @@ const HackathonHub = () => {
             />
 
             <div className="flex items-baseline gap-2">
-
               <span
                 className="tabular-nums"
                 style={{
@@ -443,9 +439,7 @@ const HackathonHub = () => {
               >
                 Continuous Hours
               </span>
-
             </div>
-
           </motion.div>
 
           {/* =================================================
@@ -535,6 +529,7 @@ const HackathonHub = () => {
               onClick={() => setSelectedTrack(domain)}
               className={`
                 group
+                min-w-0
                 p-6
                 text-left
                 hover-target
@@ -559,7 +554,7 @@ const HackathonHub = () => {
               }}
             >
 
-              <div className="flex gap-4">
+              <div className="flex min-w-0 gap-4">
 
                 {/* DOMAIN IMAGE */}
 
@@ -599,7 +594,7 @@ const HackathonHub = () => {
 
                 {/* TEXT */}
 
-                <div>
+                <div className="min-w-0">
 
                   <h3
                     style={{
@@ -634,7 +629,7 @@ const HackathonHub = () => {
         </div>
 
         {/* =================================================
-            REGISTER BUTTON
+            REGISTRATION BUTTONS
         ================================================= */}
 
         <motion.div
@@ -653,15 +648,70 @@ const HackathonHub = () => {
             duration: 0.7,
             delay: 0.1,
           }}
-          className="mt-12 flex justify-center"
+          className="
+            mt-12
+            flex
+            w-full
+            min-w-0
+            justify-center
+            gap-3
+            px-4
+            sm:px-8
+          "
         >
+
+          {/* =================================================
+              INDIVIDUAL REGISTRATION
+          ================================================= */}
+
           <ParchmentButton
             href="https://docs.google.com/forms/d/e/1FAIpQLSdekfFz0f-6lnBmChUWSHYwy3oz2WPwi7VN-1BnsYemftiyrQ/viewform"
+            size="sm"
+            className="
+              min-w-0
+              flex-1
+              max-w-sm
+            "
             target="_blank"
             rel="noopener noreferrer"
           >
-            Register
+            <span className="block sm:hidden text-center">
+              INDIVIDUAL
+              <br />
+              REGISTRATION
+            </span>
+
+            <span className="hidden sm:block text-center">
+              INDIVIDUAL REGISTRATION
+            </span>
           </ParchmentButton>
+
+          {/* =================================================
+              GROUP REGISTRATION
+          ================================================= */}
+
+          <ParchmentButton
+            href={GROUP_REGISTRATION_LINK}
+            size="sm"
+            className="
+              min-w-0
+              flex-1
+              max-w-sm
+            "
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="block sm:hidden text-center">
+              GROUP
+              <br />
+              REGISTRATION
+            </span>
+
+            <span className="hidden sm:block text-center">
+              GROUP REGISTRATION
+            </span>
+          </ParchmentButton>
+
         </motion.div>
 
       </div>
