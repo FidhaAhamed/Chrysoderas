@@ -176,7 +176,6 @@ const TreasureHuntBanner = () => {
         w-full
         items-center
         justify-center
-        overflow-hidden
         py-10
         sm:py-20
         lg:py-28

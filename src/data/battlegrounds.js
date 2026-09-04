@@ -27,6 +27,13 @@ export const battlegrounds = [
       "Teams pitch their ideas, challenge other teams, defend their concepts, and respond to unexpected real-world scenarios. The event focuses on clear thinking, adaptability, and handling pressure.",
     tag: "Pitch & Prototype",
     regLink: "https://docs.google.com/forms/d/e/1FAIpQLSdrUAcgz5Hwu6KUOoaBndTy4DguKjNh3JB6htjPXp8WalC2ZA/viewform?usp=dialog",
+    themes: [
+      "Mind & Mood — Mental Health & Neurodiversity",
+      "Digital Health — Digital Health & Telemedicine",
+      "Urban Living — Smart Home & Ergonomics",
+      "Precision Farming — Smart Agriculture",
+      "Early Learning — Childhood & Neurodivergent Learning",
+    ],
     rules: [
       "Teams must come prepared with an idea based on the given theme.",
       "Each team will pitch their idea within the allotted time.",
