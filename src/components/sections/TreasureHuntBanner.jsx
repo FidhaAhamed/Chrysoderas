@@ -173,16 +173,17 @@ const TreasureHuntBanner = () => {
       className="
         relative
         flex
+        flex-col
         w-full
         items-center
         justify-center
-        py-10
-        sm:py-20
-        lg:py-28
+        py-28
+        sm:py-36
       "
       style={{
         background:
-          "radial-gradient(ellipse 75% 60% at 50% 45%, rgba(26,74,107,0.3), transparent 70%)",
+          "radial-gradient(ellipse 70% 50% at 50% 5%, rgba(26,74,107,0.3) 0%, transparent 60%)," +
+          "radial-gradient(ellipse 55% 40% at 20% 85%, rgba(15,52,96,0.2) 0%, transparent 55%)",
       }}
     >
 
@@ -265,6 +266,67 @@ const TreasureHuntBanner = () => {
           opacity={0.08}
         />
       </motion.div>
+
+      {/* =====================================================
+          TITLE ABOVE SCROLL
+      ====================================================== */}
+
+      <div className="relative z-20 -mb-16 flex w-full flex-col items-center px-4 text-center sm:-mb-24 lg:-mb-32">
+        {/* =================================================
+            LABEL
+        ================================================= */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="mb-4 flex items-center gap-3 sm:mb-5"
+        >
+          <PirateImage src="/star.png" size={12} opacity={0.7} />
+          <span
+            className="text-[10px] uppercase tracking-[0.28em] sm:text-xs"
+            style={{
+              fontFamily: "'Cinzel', serif",
+              color: "rgba(30,106,138,0.9)",
+            }}
+          >
+            A Treasure Hunt by ISTE MACE
+          </span>
+          <PirateImage src="/star.png" size={12} opacity={0.7} />
+        </motion.div>
+
+        {/* =================================================
+            TITLE
+        ================================================= */}
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="text-[#c49c36]"
+          style={{
+            fontFamily: "'Cinzel Decorative', serif",
+            fontSize: "clamp(2rem, 5vw, 3.5rem)",
+            lineHeight: 1.2,
+            textShadow: "0 4px 20px rgba(0,0,0,0.6)",
+          }}
+        >
+          The Mega Treasure Hunt
+        </motion.h2>
+
+        {/* =================================================
+            DIVIDER
+        ================================================= */}
+        <motion.div
+          initial={{ opacity: 0, scaleX: 0 }}
+          whileInView={{ opacity: 1, scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-6 w-56 sm:mt-8 sm:w-72"
+        >
+          <RopeDivider />
+        </motion.div>
+      </div>
 
       {/* =====================================================
           MAIN SCROLL
@@ -439,9 +501,9 @@ const TreasureHuntBanner = () => {
                   "0 1px 0 rgba(255,235,190,0.45)",
               }}
             >
-              The Mega
+              Lost Vault
               <br />
-              Treasure Hunt
+              of Chrysos
             </motion.h2>
 
             {/* =================================================
