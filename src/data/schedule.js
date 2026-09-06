@@ -35,7 +35,7 @@ export const schedule = {
     {
       id: "d2-treasure-hunt",
       time: "03:00 PM",
-      title: "Mega Treasure Hunt",
+      title: "Lost Vault of Chrysos",
       description: "All tracks converge to decode clues across campus.",
     },
     {

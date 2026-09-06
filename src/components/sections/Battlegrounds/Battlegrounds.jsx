@@ -91,8 +91,8 @@ const Battlegrounds = () => {
       "
       style={{
         background:
-          "radial-gradient(ellipse 65% 50% at 20% 20%, rgba(26,74,107,0.28) 0%, transparent 55%)," +
-          "radial-gradient(ellipse 55% 40% at 80% 85%, rgba(15,52,96,0.2) 0%, transparent 55%)",
+          "radial-gradient(ellipse 70% 50% at 50% 5%, rgba(26,74,107,0.3) 0%, transparent 60%)," +
+          "radial-gradient(ellipse 55% 40% at 20% 85%, rgba(15,52,96,0.2) 0%, transparent 55%)",
       }}
     >
 

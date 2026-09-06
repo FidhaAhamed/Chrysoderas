@@ -90,7 +90,8 @@ const FAQ = () => (
     "
     style={{
       background:
-        "radial-gradient(ellipse 65% 50% at 50% 100%, rgba(26,74,107,0.25) 0%, transparent 60%)",
+        "radial-gradient(ellipse 70% 50% at 50% 5%, rgba(26,74,107,0.3) 0%, transparent 60%)," +
+        "radial-gradient(ellipse 55% 40% at 20% 85%, rgba(15,52,96,0.2) 0%, transparent 55%)",
     }}
   >
 
